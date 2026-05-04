@@ -1561,66 +1561,71 @@ var CC_RISK_SCENARIOS = [
 // ── CC PBQ ENGINE ─────────────────────────────────────────────────────────────
 // Adapted from Security+ PBQ system for ISC2 CC exam style
 
+// PBQ launch dispatcher — avoids quote-nesting issues in onclick attributes
+function pbqLaunch(id){
+  if(id==='ordering'){ccPbqState.current='ordering';startCCOrdering(0);}
+  else if(id==='matching'){ccPbqState.current='matching';startCCMatching(0);}
+  else if(id==='logs'){ccPbqState.current='logs';startCCLogs(0);}
+  else if(id==='hotspot'){ccPbqState.current='hotspot';renderCCHotspot();}
+  else if(id==='riskregister'){ccPbqState.current='riskregister';renderCCRiskRegister();}
+}
+window.pbqLaunch=pbqLaunch;
+
 function renderCCPBQMenu() {
   var PBQ_TYPES = [
     {id:'ordering',icon:'🔢',title:'Ordering & Sequencing',
-     desc:'IR phases, Risk management steps, BCP development, Access management lifecycle',
-     col:'var(--cy)',freq:'May appear — ISC2 reserves the right to include advanced items',hot:true,
-     action:"ccPbqState.current='ordering';startCCOrdering(0);"},
+     desc:'IR phases, Risk steps, BCP development, Access lifecycle',
+     col:'var(--cy)',hot:true},
     {id:'matching',icon:'🔗',title:'Matching & Categorization',
      desc:'Risk responses, Control types, Access models, BC metrics',
-     col:'var(--pu)',freq:'May appear — ISC2 reserves the right to include advanced items',hot:true,
-     action:"ccPbqState.current='matching';startCCMatching(0);"},
-    {id:'logs',icon:'📋',title:'Log Analysis',
-     desc:'Audit logs, Firewall logs, Security event interpretation',
-     col:'var(--gn)',freq:'May appear — ISC2 reserves the right to include advanced items',hot:false,
-     action:"ccPbqState.current='logs';startCCLogs(0);"},
+     col:'var(--pu)',hot:true},
     {id:'hotspot',icon:'🔧',title:'Drop-Down Hotspot',
      desc:'Ethics application, Data classification, Control classification',
-     col:'var(--ye)',freq:'May appear — ISC2 reserves the right to include advanced items',hot:true,
-     action:"ccPbqState.current='hotspot';renderCCHotspot();"},
+     col:'var(--ye)',hot:true},
+    {id:'logs',icon:'📋',title:'Log Analysis',
+     desc:'Audit logs, Firewall logs, Security event interpretation',
+     col:'var(--gn)',hot:false},
     {id:'riskregister',icon:'📊',title:'Risk Register Calculation',
      desc:'SLE, ALE, ROSI calculations for real-world scenarios',
-     col:'var(--or)',freq:'May appear — ISC2 reserves the right to include advanced items',hot:false,
-     action:"ccPbqState.current='riskregister';renderCCRiskRegister();"}
+     col:'var(--or)',hot:false}
   ];
 
-  var hotCards = PBQ_TYPES.filter(t=>t.hot);
-  var allCards = PBQ_TYPES;
+  function makeBtn(t, featured){
+    return "<button data-pbq=\""+t.id+"\" style=\"display:flex;align-items:center;gap:14px;padding:16px;background:var(--bg2);border:1.5px solid var(--bd);border-radius:12px;cursor:pointer;font-family:inherit;text-align:left;width:100%\">" +
+      "<div style=\"width:44px;height:44px;border-radius:12px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0\">" + t.icon + "</div>" +
+      "<div style=\"flex:1\">" +
+        "<div style=\"font-family:Syne,sans-serif;font-size:14px;font-weight:700;color:" + t.col + ";margin-bottom:3px\">" + t.title + "</div>" +
+        "<div style=\"font-size:12px;color:var(--tx3)\">" + t.desc + "</div>" +
+      "</div>" +
+      "<span style=\"font-size:18px;color:var(--tx4)\">&#8594;</span>" +
+    "</button>";
+  }
 
-  render("<div class='pg'>" +
-    "<h2 class='stitle'>Performance-Based Questions</h2>" +
+  var hotBtns = PBQ_TYPES.filter(function(t){return t.hot;}).map(function(t){return makeBtn(t,true);}).join('');
+  var allBtns = PBQ_TYPES.filter(function(t){return !t.hot;}).map(function(t){return makeBtn(t,false);}).join('');
+
+  render(
+    "<div class='pg'>" +
     "<div class='card2' style='margin-bottom:18px;padding:14px'>" +
       "<div style='font-size:13px;color:var(--tx2);line-height:1.7'>" +
-        "The ISC2 CC exam includes scenario-based questions requiring analysis and judgment — not just memorization. " +
-        "These simulations build the critical thinking skills needed on test day." +
+        "The ISC2 CC exam may include scenario-based questions. These simulations build critical thinking skills for test day. " +
+        "<em style='color:var(--tx4)'>ISC2 reserves the right to include advanced item types on any exam.</em>" +
       "</div>" +
     "</div>" +
-    "<h2 class='stitle'>Common PBQ Types</h2>" +
-    "<div style='display:flex;flex-direction:column;gap:8px;margin-bottom:16px'>" +
-    hotCards.map(function(t){
-      return "<button onclick='"+t.action+"' style='display:flex;align-items:center;gap:14px;padding:14px;background:var(--bg2);border:1.5px solid rgba(0,0,0,.06);border-radius:"+S_RADIUS+";cursor:pointer;font-family:inherit;text-align:left;transition:all .15s'>" +
-        "<div style='width:44px;height:44px;border-radius:12px;background:rgba(0,0,0,.04);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0'>"+t.icon+"</div>" +
-        "<div style='flex:1'>" +
-          "<div style='font-family:Syne,sans-serif;font-size:14px;font-weight:700;color:"+t.col+";margin-bottom:3px'>"+t.title+"</div>" +
-          "<div style='font-size:12px;color:var(--tx3)'>"+t.desc+"</div>" +
-        "</div>" +
-        "<span style='font-size:11px;color:var(--tx4)'>"+t.freq+" →</span>" +
-      "</button>";
-    }).join('') +
-    "</div>" +
-    "<h2 class='stitle'>All PBQ Types</h2>" +
-    "<div style='display:flex;flex-direction:column;gap:8px'>" +
-    allCards.filter(function(t){return !t.hot;}).map(function(t){
-      return "<button onclick='"+t.action+"' style='display:flex;align-items:center;gap:14px;padding:14px;background:var(--bg2);border:1.5px solid var(--bd);border-radius:"+S_RADIUS+";cursor:pointer;font-family:inherit;text-align:left'>" +
-        "<div style='font-size:22px;margin-right:4px'>"+t.icon+"</div>" +
-        "<div style='flex:1'><div style='font-weight:700;font-size:13px;color:"+t.col+"'>"+t.title+"</div>" +
-        "<div style='font-size:12px;color:var(--tx3)'>"+t.desc+"</div></div>" +
-        "<span style='font-size:11px;color:var(--tx4)'>"+t.freq+"</span>" +
-      "</button>";
-    }).join('') +
-    "</div>" +
+    "<h2 class='stitle'>Commonly Tested Scenarios</h2>" +
+    "<div style='display:flex;flex-direction:column;gap:8px;margin-bottom:16px'>" + hotBtns + "</div>" +
+    "<h2 class='stitle'>Additional Practice</h2>" +
+    "<div style='display:flex;flex-direction:column;gap:8px'>" + allBtns + "</div>" +
   "</div>");
+  // Wire up PBQ card clicks after render
+  var pbqBtns=document.querySelectorAll("[data-pbq]");
+  for(var bi=0;bi<pbqBtns.length;bi++){
+    (function(btn){
+      btn.onclick=function(){pbqLaunch(btn.getAttribute("data-pbq"));}
+      btn.onmouseover=function(){btn.style.borderColor="var(--cy)";btn.style.transform="translateY(-1px)";}
+      btn.onmouseout=function(){btn.style.borderColor="";btn.style.transform="";}
+    })(pbqBtns[bi]);
+  }
 }
 
 var S_RADIUS = "12px";
