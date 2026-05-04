@@ -3,7 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>ISC2 CC Study Hub</title>
+<title>ISC2 CC Study Hub — Free Certified in Cybersecurity Practice</title>
+<meta name="description" content="Free ISC2 CC (Certified in Cybersecurity) study hub with 700+ practice questions, flashcards, PBQ simulations, and domain-weighted exam simulator. Pass the CC exam.">
+<meta property="og:title" content="ISC2 CC Study Hub">
+<meta property="og:description" content="Free ISC2 CC study tool — 700+ questions, flashcards, PBQ practice, and full exam simulation.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -87,10 +92,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 /* Domain pills */
 .domain-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700}
 /* Flashcards */
-.fc{perspective:1000px;cursor:pointer;margin-bottom:16px}
-.fc-inner{transition:transform .5s;transform-style:preserve-3d;position:relative;min-height:160px}
+.fc{perspective:1200px;-webkit-perspective:1200px;cursor:pointer;margin-bottom:16px}
+.fc-inner{transition:transform .6s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d;-webkit-transform-style:preserve-3d;position:relative;min-height:200px;width:100%}
 .fc.flipped .fc-inner{transform:rotateY(180deg)}
-.fc-front,.fc-back{position:absolute;width:100%;backface-visibility:hidden;border-radius:var(--radius);border:1px solid var(--bd);padding:24px}
+.fc-front,.fc-back{position:absolute;width:100%;height:100%;min-height:200px;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius);border:1px solid var(--bd);padding:24px;display:flex;align-items:center;justify-content:center}
 .fc-front{background:var(--bg2)}
 .fc-back{background:var(--gn0);border-color:var(--gn);transform:rotateY(180deg)}
 /* Toast */
@@ -109,6 +114,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 /* Responsive */
 @media(max-width:768px){
   .rail{display:none}
+  .pg{padding:14px}
   .main{margin-left:0;padding-bottom:70px}
   .bnav{display:grid}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
@@ -147,8 +153,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
   <button class="bnav-btn" onclick="setTab('learn')">📖<span>Domains</span></button>
   <button class="bnav-btn" onclick="setTab('pbq')">🧩<span>PBQs</span></button>
 </nav>
-<script>
-const QZ=[
+<script>const QZ=[
 {q:"A company encrypts its customer database to prevent unauthorized reading of sensitive data. Which CIA triad component does this PRIMARILY address?",o:["Integrity", "Availability", "Confidentiality", "Non-repudiation"],a:2,d:1,e:"Confidentiality ensures only authorized parties can read data. Encryption is the primary technical control for confidentiality. Integrity protects data from modification; availability ensures data is accessible."},
 {q:"A hospital's EHR system goes offline for 4 hours due to ransomware. Which CIA component is MOST directly impacted?",o:["Confidentiality", "Integrity", "Availability", "Accountability"],a:2,d:1,e:"Availability means systems are accessible when needed. Ransomware taking systems offline attacks availability directly. Medical staff cannot access patient records, potentially impacting patient care."},
 {q:"An attacker modifies financial transaction records without authorization. Which CIA component is violated?",o:["Availability", "Confidentiality", "Non-repudiation", "Integrity"],a:3,d:1,e:"Integrity ensures data remains accurate and unmodified. Unauthorized modification of records is a direct integrity violation. Hashing and digital signatures are primary integrity controls."},
@@ -702,7 +707,7 @@ const QZ=[
 {q:"Which concept describes an attacker using a legitimate user's credentials after stealing them?",o:["Identity theft", "Credential stuffing", "Privilege escalation", "Insider threat"],a:1,d:1,e:"Credential stuffing uses stolen username/password combinations (from data breaches) against other services, exploiting password reuse. Attackers automate login attempts across many sites. MFA defeats credential stuffing even when credentials are stolen. Unique passwords per site (via password manager) also prevent it."},
 {q:"An organization's security program should be aligned with:",o:["Only technical best practices", "Business objectives", " regulatory requirements", " and risk tolerance", "The preferences of the security team", "Competitor security programs"],a:1,d:1,e:"Security programs must support business objectives while managing risk within the organization's tolerance and meeting regulatory obligations. Security that prevents all business activity isn't acceptable. Security that enables business operations while managing risk to acceptable levels is the goal."},
 {q:"Which term describes a weakness in a system that could be exploited by a threat?",o:["Risk", "Threat", "Vulnerability", "Impact"],a:2,d:1,e:"A vulnerability is a weakness or flaw that could be exploited. Missing patches, misconfigured settings, weak passwords, and poor code are vulnerabilities. The threat exploits the vulnerability to cause impact. Risk = Threat × Vulnerability × Impact."},
-{q:"Security labels in mandatory access control systems represent:",o:["User job titles", "Data sensitivity classifications enforced by the system (Top Secret", " Secret", " Confidential", " Unclassified)", "User department affiliations", "System-assigned unique identifiers"],a:1,d:1,e:"MAC labels classify information by sensitivity (government: Top Secret, Secret, Confidential, Unclassified; commercial: Restricted, Confidential, Internal, Public). Users are granted clearances. The system enforces that users only access data at or below their clearance level. Owners cannot override these system-enforced decisions."},
+{q:"Security labels in mandatory access control systems represent:",o:["User job titles","Data sensitivity classifications enforced by the system (e.g., Top Secret, Secret, Confidential)","User role-based access groups","System-assigned unique identifiers"],a:1,d:3,e:"MAC labels classify information by sensitivity (government: Top Secret, Secret, Confidential, Unclassified; commercial: Restricted, Confidential, Internal, Public). Users are granted clearances. The system enforces that users only access data at or below their clearance level. Owners cannot override these system-enforced decisions."},
 {q:"A DR plan should be reviewed and updated at minimum:",o:["Only after a disaster", "Annually or when significant changes occur to systems", " business processes", " or threats", "Every 5 years", "When compliance requires it"],a:1,d:2,e:"DR plans become outdated as systems change, staff turn over, and business processes evolve. Annual review ensures contact lists, procedures, and system inventories remain accurate. Reviews should also occur after significant IT changes, business restructuring, or after executing the plan — all of which may require updates."},
 {q:"Which recovery strategy has the LOWEST ongoing cost but the HIGHEST recovery time?",o:["Hot site", "Warm site", "Cold site", "Cloud DR"],a:2,d:2,e:"Cold sites are empty facilities with power and connectivity. No hardware, software, or data is pre-positioned. Monthly cost is minimal (facility lease only). Recovery requires acquiring hardware, installing software, and restoring data — potentially taking days to weeks. Appropriate for non-critical systems with high MTD."},
 {q:"Business continuity testing that ACTUALLY activates the alternate site is called:",o:["Tabletop exercise", "Structured walkthrough", "Parallel test", "Full interruption test"],a:2,d:2,e:"A parallel test activates the alternate site and verifies it can run production while the primary site continues. This validates actual capability without production risk. A full interruption test shuts down the primary — maximum realism but maximum risk. Parallel tests are the most common thorough DR validation approach."},
@@ -720,526 +725,144 @@ const QZ=[
 {q:"Which security measure prevents unauthorized USB devices from being used on corporate computers?",o:["Antivirus software", "USB device control policies enforced via endpoint management", "Network firewalls", "Encryption of USB drives"],a:1,d:4,e:"USB device control (via endpoint management tools, Group Policy) restricts which USB devices can connect. This prevents data theft via USB, introduction of malware on USB drives, and use of unauthorized peripherals. Policies can allow specific approved devices (by serial number/vendor) while blocking others."},
 {q:"A security analyst receives 500 alerts per day but can only investigate 50. The BEST solution is:",o:["Hire more analysts", "Implement SOAR to automate low-fidelity alert triage and enrich high-fidelity alerts", "Ignore low-priority alerts", "Reduce monitoring coverage"],a:1,d:5,e:"SOAR (Security Orchestration, Automation, and Response) automates the processing of routine alerts — looking up IPs in threat intel, querying EDR for process details, creating tickets. This allows 50 analysts to effectively handle 500 alerts by automating the 90% of work that doesn't require human judgment."},
 {q:"Which approach to vulnerability remediation prioritizes patching based on actual exploitation evidence?",o:["CVSS score only", "Asset value only", "CISA KEV catalog and threat intelligence-informed prioritization", "Random order"],a:2,d:5,e:"CISA's Known Exploited Vulnerabilities catalog lists vulnerabilities with confirmed active exploitation. These require immediate remediation regardless of CVSS score. Threat intelligence showing active exploitation in your industry further refines prioritization. This approach focuses limited patching resources on real threats, not theoretical ones."},
-{q:"Security clearances in government contexts are granted based on:",o:["Job seniority", "Background investigation establishing trustworthiness and need for access", "Training completion", "Manager recommendation only"],a:1,d:5,e:"Government security clearances require background investigations (criminal history, financial, foreign contacts, drug use), character references, and demonstration of need for access (need-to-know). Clearances grant eligibility to access classified information at that level — need-to-know still further restricts actual access."},
+{q:"Security clearances in government contexts are granted based on:",o:["Job seniority", "Background investigation establishing trustworthiness and need for access", "Training completion", "Manager recommendation only"],a:1,d:3,e:"Government security clearances require background investigations (criminal history, financial, foreign contacts, drug use), character references, and demonstration of need for access (need-to-know). Clearances grant eligibility to access classified information at that level — need-to-know still further restricts actual access."},
 {q:"Which monitoring approach detects when a privileged user accesses resources outside their normal pattern?",o:["Signature-based detection", "User and Entity Behavior Analytics (UEBA)", "Log collection", "Vulnerability scanning"],a:1,d:5,e:"UEBA establishes baselines of normal behavior for each user and entity. Deviations trigger alerts — an admin accessing payroll systems they've never touched, an account logging in at 3 AM, a service account making interactive logins. UEBA catches insider threats and compromised accounts that bypass technical controls."},
-{q:"A security team discovers that an employee has been printing customer records and taking them home for months. This is an example of:",o:["External attack", "Insider threat with data exfiltration", "Accidental breach", "Physical security failure only"],a:1,d:5,e:"Insider threats involve trusted individuals misusing their legitimate access. This employee had authorized access to print records but was violating data handling policies. Detection mechanisms for physical exfiltration include: print monitoring, DLP policies on what can be printed, clean desk policies, and suspicious behavior reporting."}
+{q:"A security team discovers that an employee has been printing customer records and taking them home for months. This is an example of:",o:["External attack", "Insider threat with data exfiltration", "Accidental breach", "Physical security failure only"],a:1,d:5,e:"Insider threats involve trusted individuals misusing their legitimate access. This employee had authorized access to print records but was violating data handling policies. Detection mechanisms for physical exfiltration include: print monitoring, DLP policies on what can be printed, clean desk policies, and suspicious behavior reporting."},
+{q:"The Clark-Wilson integrity model enforces data integrity through which mechanism?",o:["Well-formed transactions that only authorized users can execute on constrained data items", "System-assigned labels and clearances", "Role-based permissions", "Owner-controlled access"],a:0,d:1,e:"Clark-Wilson uses Constrained Data Items (CDIs), Integrity Verification Procedures (IVPs), and Transformation Procedures (TPs). Only TPs executed by authorized users can modify CDIs. This ensures all modifications follow authorized procedures. Used in commercial banking and financial systems."},
+{q:"The Brewer-Nash (Chinese Wall) model is MOST relevant to which industry?",o:["Military intelligence", "Financial services and consulting where conflicts of interest must be prevented", "Healthcare", "Manufacturing"],a:1,d:1,e:"Chinese Wall prevents analysts from accessing data from competing organizations. Once you've accessed data for Company A, you cannot access data for Company A's competitors. This prevents conflicts of interest in investment banking, law firms, and consulting companies where staff handle multiple competing clients."},
+{q:"The Biba integrity model's 'no write up' rule means:",o:["Users cannot write to lower-integrity objects", "Users cannot write to HIGHER-integrity objects to prevent contamination", "Users can only read up", "Users can only write down"],a:1,d:1,e:"Biba's star integrity property: no write up (a subject cannot write to an object with higher integrity than the subject). A low-integrity user cannot corrupt high-integrity data. The 'no read down' rule prevents contamination from reading low-integrity data into high-integrity processes."},
+{q:"Which security model is designed for CONFIDENTIALITY in government/military systems?",o:["Clark-Wilson", "Brewer-Nash", "Bell-LaPadula", "Biba"],a:2,d:1,e:"Bell-LaPadula focuses on confidentiality: No Read Up (Simple Security Property) — can't read data above your clearance. No Write Down (Star Property) — can't write data to lower classifications. Designed to prevent classified information from flowing to lower classification levels."},
+{q:"In the Bell-LaPadula model, a user with Secret clearance attempting to read Top Secret data would be:",o:["Allowed if approved by a manager", "Denied — the No Read Up property prevents reading above clearance level", "Allowed with dual-control approval", "Allowed only for read-only access"],a:1,d:1,e:"Bell-LaPadula's Simple Security Property (No Read Up): subjects cannot read objects at higher sensitivity levels than their clearance. A Secret-cleared user cannot read Top Secret data regardless of any other factor. The system enforces this — it's mandatory, not discretionary."},
+{q:"Which concept describes making security decisions based on observed behavior rather than stated identity?",o:["Role-based trust", "Behavioral biometrics", "Zero trust with continuous validation", "Identity federation"],a:2,d:1,e:"Continuous validation evaluates ongoing behavior signals (access patterns, typing rhythm, location, device) throughout a session, not just at login. Anomalous behavior triggers step-up authentication or session termination. This is more robust than point-in-time authentication that never re-verifies."},
+{q:"A honeypot designed to attract and track attackers provides which security benefit?",o:["Direct prevention of attacks", "Threat intelligence about attacker tools", " techniques", " and procedures", "Faster incident response", "Reduced false positive rates"],a:1,d:1,e:"Honeypots generate intelligence. Because no legitimate traffic reaches them, all activity is suspicious. Attackers revealing their tools, methods, and objectives in honeypots helps defenders improve real defenses. Honeypot data feeds threat intelligence programs and helps prioritize actual defenses."},
+{q:"Security through obscurity as a PRIMARY security mechanism fails because:",o:["It requires too much computing power", "Secrets inevitably get exposed — once the obscuring factor is known", " all protection is lost", "It conflicts with regulatory requirements", "It is too expensive to maintain"],a:1,d:1,e:"Obscurity secrets (hidden algorithms, undocumented backdoors, secret URLs) inevitably get revealed through reverse engineering, employee departures, or leaks. When the secret is revealed, all protection disappears. True security must withstand exposure of the design — only the keys need to remain secret."},
+{q:"Which principle states that security systems should have the minimum number of components necessary?",o:["Least privilege", "Economy of mechanism", "Defense in depth", "Fail secure"],a:1,d:1,e:"Economy of mechanism (simplicity/minimization): simpler systems have fewer potential vulnerabilities, are easier to verify, and simpler to understand. Every additional component adds potential attack surface. Complexity is the enemy of security — each layer of complexity introduces potential failure modes."},
+{q:"A system that defaults to denying all access unless explicitly granted implements which principle?",o:["Whitelist approach / default deny", "Blacklist approach / default allow", "Least privilege", "Defense in depth"],a:0,d:1,e:"Default deny (allowlist/whitelist approach) blocks everything unless specifically permitted. This is more secure than default allow (blocklist) which permits everything unless blocked. Default deny means new threats are blocked automatically; default allow means new threats get through until specifically blocked."},
+{q:"Which type of security assessment evaluates the security awareness and practices of employees through simulated attacks?",o:["Vulnerability assessment", "Red team exercise", "Social engineering assessment", "Penetration test"],a:2,d:1,e:"Social engineering assessments test human defenses through simulated phishing, vishing, pretexting, and physical intrusion attempts. They measure employee susceptibility to manipulation. Results drive targeted awareness training. Unlike technical pen tests, they test people rather than systems."},
+{q:"Information asset owners are responsible for:",o:["Implementing technical controls", "Ensuring appropriate security controls are applied and making access decisions for their information assets", "Network security configuration", "Security awareness training delivery"],a:1,d:1,e:"Asset owners are accountable for their information — defining classification, approving access, and ensuring appropriate controls. IT/security implements the controls the owner requires. This business ownership of data is fundamental to effective data governance and security program accountability."},
+{q:"A security governance board that includes legal, HR, IT, and business unit representatives ensures:",o:["Maximum technical security", "Security decisions balance technical requirements with legal", " HR", " and business considerations", "Faster security implementations", "Lower security costs"],a:1,d:1,e:"Cross-functional governance ensures security is viewed holistically. Legal provides regulatory perspective. HR addresses workforce issues. Business units articulate operational requirements. Security provides technical expertise. Decisions made with all perspectives better balance security requirements against business needs and legal obligations."},
+{q:"Which concept describes defining security requirements at the start of a project rather than adding them later?",o:["Agile security", "Security by design / Secure SDLC", "Security testing", "Compliance management"],a:1,d:1,e:"Security by design integrates security requirements from project inception. Requirements phase: security requirements. Design phase: threat modeling. Development: secure coding standards. Testing: SAST, DAST, code review. This costs much less than retrofitting security — fixing in design is 100x cheaper than fixing in production."},
+{q:"A privacy impact assessment is conducted BEFORE implementing a new data processing system to:",o:["Satisfy audit requirements", "Identify and mitigate privacy risks before they become incidents", "Classify the data involved", "Assign data ownership"],a:1,d:1,e:"PIAs identify privacy risks proactively. What data is collected? Is it proportionate? Are there less privacy-invasive alternatives? What are the risks to data subjects? Can those risks be mitigated? Conducting PIAs before implementation allows privacy-protective design rather than expensive retrofitting."},
+{q:"Which principle requires that each system component is authorized to interact only with the specific components it needs?",o:["Least privilege", "Separation of duties", "Principle of minimal sharing / need-to-connect", "Defense in depth"],a:2,d:1,e:"Minimal sharing / need-to-connect limits which systems can communicate with which other systems. A web server shouldn't directly connect to a database server containing all enterprise data — only the specific database it needs. Microsegmentation and network ACLs implement this principle."},
+{q:"When two security controls with different failure modes are combined, this creates:",o:["Redundancy", "Diversity in defense in depth — a single attack is unlikely to defeat both controls", "Increased complexity", "Single point of failure"],a:1,d:1,e:"Defense in depth with diverse controls means an attacker must defeat multiple different mechanisms. If both controls fail the same way, they're not truly layered. Combining a firewall (network-level) with endpoint detection (host-level) and MFA (identity-level) provides diverse layers that fail independently."},
+{q:"Which security approach limits blast radius by ensuring a compromised component cannot access all other components?",o:["Defense in depth", "Isolation and containment through segmentation and least privilege", "Security through obscurity", "Redundancy"],a:1,d:1,e:"Blast radius limitation means a breach of one component doesn't automatically expose everything else. Network segmentation, application sandboxing, and container isolation all limit how far a compromise can spread. Attackers who breach one system should not immediately gain access to everything."},
+{q:"The purpose of a security awareness poster campaign is to:",o:["Replace security training", "Reinforce security behaviors through repeated", " visible reminders in the workplace", "Satisfy compliance requirements only", "Provide technical security information"],a:1,d:1,e:"Posters reinforce key behaviors as part of a comprehensive awareness program. They serve as persistent reminders of security responsibilities (clean desk, badge wearing, phishing awareness). They're most effective when paired with training, simulations, and leadership examples — not as a standalone program."},
+{q:"Which data handling practice ensures personal data accuracy?",o:["Encrypting all personal data", "Implementing processes for individuals to review and correct their information", "Minimizing data collection", "Retaining data for as long as possible"],a:1,d:1,e:"Data accuracy requires mechanisms for subjects to review and correct their personal information. Inaccurate data can harm individuals (wrong medical records, incorrect credit information). GDPR and other privacy regulations give individuals the right to correct inaccurate data. Organizations must maintain correction processes."},
+{q:"Security testing performed by an independent third party PRIMARILY provides:",o:["Lower cost than internal testing", "Unbiased assessment without assumptions made by internal teams who designed the system", "Faster results", "More comprehensive coverage"],a:1,d:1,e:"Internal teams develop blind spots from familiarity with their own systems. External testers bring fresh perspective, different attack methodologies, and no assumptions about how the system 'should' work. Independence also satisfies audit requirements that prohibit testing one's own work."},
+{q:"An ISC2 member learns that a colleague has been misrepresenting their certifications to win contracts. The member should:",o:["Ignore it — it's not their business", "Confront the colleague privately and encourage them to correct the misrepresentation", " or report to ISC2", "Report directly to the colleague's clients", "Post about it publicly on social media"],a:1,d:1,e:"Canon 4 (advance and protect the profession) requires addressing unethical conduct. Confronting privately first gives the colleague an opportunity to self-correct. If the behavior continues, reporting to ISC2 through the ethics complaint process is appropriate. Direct client notification or public exposure bypasses appropriate channels."},
+{q:"A security consultant's client asks them to conduct surveillance on a competitor's systems. This request:",o:["Should be fulfilled as the client is paying for the service", "Must be declined — it's illegal (unauthorized computer access) regardless of client request", "Should be fulfilled if the client provides written authorization", "May be fulfilled with appropriate disclaimers"],a:1,d:1,e:"Canon 1 (protect society) and Canon 2 (act honorably and legally) absolutely prohibit facilitating illegal activities. Unauthorized access to computer systems is illegal in virtually every jurisdiction regardless of who requests it or why. Client authorization cannot make illegal activity legal. This request must be declined and may warrant reporting."},
+{q:"An ISC2 member is asked to implement a security system they have no experience with. They should:",o:["Accept and learn quickly on the job", "Decline and refer to a qualified practitioner", " or bring in qualified assistance", "Accept but charge extra for the learning curve", "Request a longer timeline and proceed alone"],a:1,d:1,e:"Canon 3 (provide competent service) prohibits accepting work beyond your competence. The ethical response is to be transparent about limitations and either decline (referring to someone qualified) or bring in qualified assistance to supplement your skills. Proceeding alone without necessary competence risks harming the client."},
+{q:"Which ISC2 ethics canon most directly prohibits participating in a price-fixing scheme with other security consultants?",o:["Canon 1 — protect society", "Canon 2 — act honorably", " honestly", " justly", " responsibly", " and legally", "Canon 3 — provide diligent service", "Canon 4 — advance the profession"],a:1,d:1,e:"Price-fixing is illegal (antitrust violation) and dishonest. Canon 2 (act honorably, honestly, justly, responsibly, and legally) directly prohibits illegal and dishonest conduct. Canon 4 (advance the profession) is also relevant since price-fixing harms the profession's reputation, but Canon 2 is the most directly applicable."},
+{q:"A security professional discovers a significant undisclosed security flaw in software they reviewed years ago. The MOST ethical action is:",o:["Keep quiet — they weren't hired to find that flaw", "Immediately disclose publicly to warn users", "Follow responsible disclosure — notify the vendor with a reasonable fix timeline before any public disclosure", "Ignore it — it's no longer their concern"],a:2,d:1,e:"Responsible disclosure (coordinated disclosure) gives vendors time to fix vulnerabilities before public announcement. This protects users during the fix period. Immediate public disclosure (full disclosure) may harm users before patches are available. Complete silence leaves vulnerabilities unaddressed. Responsible disclosure balances user protection with vendor accountability."},
+{q:"GDPR's 'right to erasure' is also known as:",o:["Right to access", "The right to be forgotten — individuals can request deletion of their personal data", "Right to portability", "Right to object"],a:1,d:1,e:"The right to erasure (Article 17 GDPR) allows individuals to request deletion of their personal data in certain circumstances — when data is no longer necessary, consent is withdrawn, or processing was unlawful. This right is not absolute — it can be overridden by legal obligations to retain data."},
+{q:"Under GDPR, a data processor differs from a data controller in that the processor:",o:["Makes decisions about data use", "Processes data on behalf of the controller without determining its own purposes", "Owns the data", "Has no security obligations"],a:1,d:1,e:"Data controllers determine the purposes and means of processing. Data processors act on the controller's instructions. Processors have their own GDPR obligations (Article 28) including security measures, but they don't determine why data is processed. Cloud providers are typically processors; their customers are controllers."},
+{q:"Which regulation requires US companies to allow California residents to opt out of the sale of their personal information?",o:["GDPR", "HIPAA", "CCPA — California Consumer Privacy Act", "SOX"],a:2,d:1,e:"CCPA gives California residents rights including: knowing what personal data is collected, deleting personal data, opting out of sale of personal data, and non-discrimination for exercising rights. It applies to for-profit businesses meeting size thresholds that serve California residents."},
+{q:"A company transfers EU citizen data to the US, which lacks equivalent data protection laws. GDPR requires:",o:["Explicit consent only", "Adequate safeguards such as Standard Contractual Clauses (SCCs)", " Binding Corporate Rules", " or adequacy decisions", "Simply notifying EU citizens", "No additional requirements for US transfers"],a:1,d:1,e:"GDPR restricts data transfers to countries without adequate privacy protections. Mechanisms: EU adequacy decisions (declaring a country's laws adequate), Standard Contractual Clauses (contractual protections), Binding Corporate Rules (multinational company policies), or specific derogations. Without these, EU personal data cannot be transferred to the US."},
+{q:"Data minimization as a privacy principle means:",o:["Storing data in smaller files", "Collecting and processing only the minimum personal data necessary for the specified purpose", "Deleting data after a fixed period", "Minimizing data access rights"],a:1,d:1,e:"Data minimization (GDPR Article 5(1)(c)) requires collecting only data that is adequate, relevant, and limited to what is necessary. Collecting more data than needed violates this principle. Each additional data field collected increases breach risk and regulatory exposure. 'Just in case we need it later' is not sufficient justification."},
+{q:"Privacy notices must be provided:",o:["Only when users request them", "At the time of data collection", " before collecting personal data", "Annually", "Only for sensitive categories of data"],a:1,d:1,e:"Privacy notices must be provided at collection time (GDPR Articles 13-14). Users have the right to know what's being collected before they provide it. Retroactive disclosure after collection has already occurred doesn't satisfy the requirement. Layered notices (short summary + full detail) improve readability."},
+{q:"Which concept describes collecting data for one purpose but later using it for a different, incompatible purpose?",o:["Data theft", "Purpose creep — violates purpose limitation principles", "Data aggregation", "Data profiling"],a:1,d:1,e:"Purpose creep occurs when data collected for one reason is later used for different, potentially incompatible purposes. Collecting email for transactional notifications then using it for marketing (without consent) is purpose creep. Privacy regulations require new consent or legitimate basis when using data for new purposes."},
+{q:"Personal data pseudonymization differs from anonymization in that pseudonymized data:",o:["Cannot be re-identified under any circumstances", "Can potentially be re-identified using additional information held separately", "Is not subject to GDPR", "Provides stronger privacy protection"],a:1,d:1,e:"Pseudonymized data has identifying information replaced with a pseudonym — but the mapping back to real identity exists separately. GDPR still applies to pseudonymized data. Truly anonymized data has no path back to individual identity — GDPR doesn't apply. Pseudonymization reduces risk but isn't the same as anonymization."},
+{q:"Which privacy principle gives individuals the right to receive their personal data in a portable format?",o:["Right to access", "Right to erasure", "Right to data portability", "Right to restriction"],a:2,d:1,e:"GDPR Article 20 (data portability) allows individuals to receive their personal data in a structured, commonly used, machine-readable format and transmit it to another controller. This enables switching between services (e.g., taking your data from one social network to another) without losing your information history."},
+{q:"Qualitative risk assessment uses:",o:["Numerical dollar values and probabilities", "Descriptive scales (high/medium/low) based on expert judgment", "Statistical models", "CVE scores only"],a:1,d:1,e:"Qualitative risk assessments use descriptive scales rather than precise numbers — rating likelihood and impact as High/Medium/Low or on a 1-5 scale. Easier and faster than quantitative, but less precise. Used when data is unavailable for quantitative analysis or for initial triage. The result is a risk ranking, not a dollar figure."},
+{q:"Quantitative risk assessment produces:",o:["High/medium/low risk ratings", "Dollar-value risk figures (ALE) based on mathematical analysis", "Simple risk matrices", "Compliance checklists"],a:1,d:1,e:"Quantitative risk assessment produces numerical results — Asset Value, Exposure Factor, SLE, ALE. These enable cost-benefit analysis of security investments (ROSI). More accurate but requires reliable data and more effort. ALE = SLE × ARO. ROSI = ALE reduction minus control cost."},
+{q:"A residual risk that exceeds the organization's risk tolerance should be:",o:["Formally accepted with documentation", "Treated with additional controls", " or the activity should be avoided", "Ignored if no budget is available", "Transferred automatically through insurance"],a:1,d:1,e:"Risk tolerance is the maximum acceptable residual risk. If residual risk exceeds tolerance, the organization must either implement more controls to reduce it further, or avoid the activity creating the risk. Acceptance requires the risk to be within tolerance. Exceeding tolerance requires action, not just documentation."},
+{q:"Threat modeling activity PRIMARILY takes place during which software development phase?",o:["Testing", "Production deployment", "Design and requirements — to identify threats before building", "Code review"],a:2,d:1,e:"Threat modeling is most valuable before writing code. In design, threats can be eliminated through architectural decisions that cost nothing. Threat models identify what can go wrong (STRIDE: Spoofing, Tampering, Repudiation, Information Disclosure, DoS, Elevation of Privilege) and inform security requirements and control selection."},
+{q:"Which risk concept describes the probability that a specific threat will exploit a vulnerability in a given time period?",o:["Impact", "Likelihood/probability", "Risk appetite", "Residual risk"],a:1,d:1,e:"Likelihood (probability) estimates how often a threat will materialize. Combined with impact, it determines risk level: High likelihood × High impact = Critical risk. Low likelihood × High impact = High risk. Risk scoring matrices use likelihood and impact ratings to prioritize risks for treatment."},
+{q:"A Vulnerability Management Program includes which activity AFTER identifying vulnerabilities?",o:["Purchasing new security tools", "Prioritizing and remediating vulnerabilities based on risk before attackers exploit them", "Documenting compliance only", "Reporting to executives only"],a:1,d:1,e:"Vulnerability management cycle: Discover → Assess → Prioritize (based on severity, exploitability, asset criticality) → Remediate (patch, mitigate, accept) → Verify remediation → Report. Prioritization ensures highest-risk vulnerabilities are fixed first, especially when resources are limited."},
+{q:"A man-in-the-middle attack against TLS is prevented by:",o:["Using longer encryption keys", "Certificate validation — the client verifies the server's certificate chain to a trusted root CA", "Using symmetric encryption", "Increasing session timeout values"],a:1,d:1,e:"TLS prevents MitM through certificate validation. The server presents its certificate signed by a trusted CA. The client verifies the certificate chain, domain name match, and validity. An attacker cannot fake this certificate without the server's private key. Certificate pinning adds additional protection."},
+{q:"Which encryption mode should NOT be used because identical plaintext blocks produce identical ciphertext blocks, revealing patterns?",o:["CBC mode", "GCM mode", "CTR mode", "ECB mode — Electronic Codebook"],a:3,d:1,e:"ECB mode encrypts each block independently with the same key, so identical plaintext produces identical ciphertext. This reveals data patterns — the 'ECB penguin' demonstrates this visually. All modern encryption should use modes with initialization vectors that ensure identical plaintexts produce different ciphertexts."},
+{q:"Forward secrecy is achieved by:",o:["Using the same session key repeatedly for efficiency", "Generating unique temporary key pairs for each session that aren't stored", "Increasing key length", "Using certificates with longer validity periods"],a:1,d:1,e:"Forward secrecy (Perfect Forward Secrecy) uses ephemeral key pairs generated fresh for each session and discarded afterward. If the server's long-term private key is later compromised, past sessions cannot be decrypted because the session keys are gone. TLS 1.3 mandates forward secrecy by requiring ECDHE or DHE key exchange."},
+{q:"A hardware security module (HSM) provides:",o:["Faster internet connections", "Tamper-resistant hardware for secure key storage and cryptographic operations that keys never leave", "Encrypted storage for user data", "Network access control"],a:1,d:1,e:"HSMs are physical security devices that store cryptographic keys in tamper-evident hardware. Keys never leave the HSM in plaintext — all cryptographic operations happen inside. Even if the HSM is stolen, keys can't be extracted. Used for root CA keys, payment processing, and high-security applications requiring FIPS 140-2 Level 3+."},
+{q:"In asymmetric encryption, encrypting with the PRIVATE key and decrypting with the PUBLIC key provides:",o:["Confidentiality for the data", "Digital signature — authentication and non-repudiation", "Better performance", "Stronger encryption"],a:1,d:1,e:"Encrypting with the private key creates a digital signature — anyone with the public key can verify the signature, confirming it was created by the private key holder (authentication) and that they cannot deny creating it (non-repudiation). The content isn't confidential — anyone with the public key can verify/decrypt."},
+{q:"Certificate transparency logs are used to:",o:["Store private keys securely", "Publicly record all issued certificates so unauthorized certificate issuance can be detected", "Speed up certificate validation", "Reduce certificate costs"],a:1,d:1,e:"Certificate Transparency (CT) requires CAs to log all issued certificates in public, append-only logs. Domain owners can monitor these logs for certificates issued for their domains without authorization. Rogue certificates (issued by compromised or malicious CAs) become detectable. CT is now required by major browsers."},
+{q:"Which attack collects multiple TLS handshakes to eventually decrypt the session key?",o:["BEAST attack", "CRIME attack", "POODLE attack", "All exploit protocol-level weaknesses in older TLS versions"],a:3,d:1,e:"BEAST, CRIME, POODLE, and DROWN all exploit weaknesses in older protocol versions (TLS 1.0, SSL 3.0, SSL 2.0) or specific cipher modes. This is why TLS 1.0 and 1.1 are deprecated and SSL is completely disabled. Using current protocol versions (TLS 1.2/1.3) with strong cipher suites prevents these attacks."},
+{q:"An organization runs its DR plan but the alternate site cannot support full production workload. This reveals:",o:["A budget problem only", "A gap between DR capabilities and business requirements that must be addressed", "An acceptable limitation of warm sites", "A testing methodology error"],a:1,d:2,e:"DR testing that reveals capability gaps is valuable — discovering limitations during a test is far better than during an actual disaster. The gap between what the plan claims and what it actually delivers must be closed. This may require upgrading the alternate site, reducing RTO/RPO requirements, or accepting greater risk."},
+{q:"Business continuity planning for a pandemic differs from natural disaster planning by:",o:["Being less complex", "Requiring planning for sustained human unavailability across all sites simultaneously — traditional site failover doesn't help", "Having shorter duration", "Affecting only some geographic locations"],a:1,d:2,e:"Pandemics affect people everywhere simultaneously — you can't fail over to an alternate site if staff are sick across the board. Pandemic BCP focuses on remote work capabilities, cross-training for key roles, supply chain diversity, and essential function prioritization. Geographic redundancy is insufficient."},
+{q:"Which scenario requires activating the incident response plan?",o:["Scheduled maintenance that causes a planned outage", "A user forgetting their password", "An attacker gaining unauthorized access to systems containing customer data", "A failed hard drive on a non-critical workstation"],a:2,d:2,e:"IR plans activate for confirmed or suspected security incidents — unauthorized access, malware infection, data breach. Routine outages follow change management. Password resets follow help desk procedures. A hard drive failure follows hardware maintenance procedures. Only the unauthorized access scenario triggers IR."},
+{q:"The PRIMARY difference between an incident and an event in security is:",o:["Events are more serious", "An event is any observable occurrence; an incident is an event with actual or potential adverse impact on security", "Events are always investigated", "Incidents only involve external attackers"],a:1,d:2,e:"Security events are observable occurrences — a login, a file access, a network connection. Security incidents are events that threaten or violate security policy. All incidents are events, but not all events are incidents. Triage determines whether an event becomes an incident requiring IR response."},
+{q:"During incident response, evidence of attacker persistence mechanisms (scheduled tasks, registry run keys) is MOST important to find during which phase?",o:["Containment", "Detection", "Eradication — to ensure all backdoors are removed before recovery", "Post-incident review"],a:2,d:2,e:"Eradication must remove ALL attacker footholds — not just the initial intrusion vector. Attackers establish multiple persistence mechanisms (registry run keys, scheduled tasks, startup scripts, web shells) specifically to survive cleanup. Missing any one allows reinfection. Thorough persistence hunting is the hallmark of effective eradication."},
+{q:"A computer forensics investigator uses a write blocker when examining a hard drive. If they did NOT use one:",o:["The investigation would fail completely", "Any write to the drive (including OS mounting) could alter timestamps and metadata", " contaminating evidence", "The investigation would take longer", "Legal requirements would not be met"],a:1,d:2,e:"Write blockers prevent any writes to the evidence drive. When an OS mounts a drive normally, it modifies access timestamps, swap files, and other metadata. These changes contaminate evidence — defense attorneys can challenge whether data was altered after seizure. Write blockers preserve drive integrity for legal admissibility."},
+{q:"Which notification is required within 72 hours of discovering a personal data breach under GDPR?",o:["Notification to affected individuals", "Notification to the supervisory authority (data protection authority)", "Notification to media", "Notification to other EU data protection authorities"],a:1,d:2,e:"GDPR Article 33 requires notification to the supervisory authority within 72 hours 'where feasible.' Article 34 requires notification to affected individuals 'without undue delay' when there's high risk to their rights and freedoms. The supervisory authority notification is required first; individual notification follows when risk threshold is met."},
+{q:"Recovery from a ransomware attack WITHOUT paying the ransom is MOST likely if the organization has:",o:["A strong security team", "Current", " tested backups stored separately from the network that ransomware cannot reach", "Cyber insurance", "A ransomware negotiator on retainer"],a:1,d:2,e:"Immutable, offline, or air-gapped backups are the most effective ransomware recovery mechanism. Ransomware specifically targets backup systems — it delays encryption to maximize damage before detection. Backups that survive ransomware (offline, immutable, or cloud with versioning and object lock) enable recovery without paying ransom."},
+{q:"A security incident that causes the CEO to receive a call from a major customer who heard about it first in the news indicates a failure of:",o:["Technical security controls", "The crisis communications plan — stakeholders should be notified through proper channels before public disclosure", "The incident response team", "The firewall"],a:1,d:2,e:"Stakeholder communications failures compound incident damage. Key customers, board members, and regulators should receive notification through appropriate channels before public disclosure — not learn about it from news. Crisis communications plans define who is notified, in what order, with what information, and through which channels."},
+{q:"Which IR phase captures lessons and feeds them back into the preparation phase?",o:["Eradication", "Recovery", "Post-incident activity — creating a continuous improvement loop", "Detection"],a:2,d:2,e:"Post-incident review feeds improvements back to preparation: update playbooks, improve detection rules, patch vulnerabilities exploited, revise security policies, enhance training. This creates the PDCA cycle for IR: Plan (prepare) → Do (respond) → Check (post-incident) → Act (improve preparation). Without this loop, organizations repeat the same incidents."},
+{q:"The MAIN purpose of tabletop exercises in business continuity planning is:",o:["To activate actual recovery systems", "To identify gaps in plans", " train team members on their roles", " and validate communication through low-risk discussion", "To measure actual RTO/RPO achievement", "To satisfy auditor requirements"],a:1,d:2,e:"Tabletop exercises use scenario-based discussions to test plans without operational disruption. They reveal: who doesn't know their role, contact lists that are outdated, conflicting procedures, unclear decision authority, and plan gaps. They're cheap, low-risk, and can be conducted more frequently than full activation tests."},
+{q:"An organization has separate DR and BCP teams. During a major incident, coordination MOST likely fails because:",o:["Teams use different tools", "Plans are documented separately with no integration", " leading to gaps and conflicts during actual execution", "DR teams are more technical", "BCP teams don't understand technology"],a:1,d:2,e:"Siloed DR and BCP planning creates coordination gaps. During real incidents, technical recovery (DR) and business continuity (BCP) must be coordinated — what good is the data center running if business processes can't operate? Integrated planning with unified command structures prevents coordination failures during actual events."},
+{q:"System resilience differs from simple redundancy in that resilience:",o:["Requires more hardware", "Describes the system's ability to maintain acceptable service levels through disruption", " degradation", " and recovery — not just failover", "Is more expensive", "Only applies to software systems"],a:1,d:2,e:"Resilience is broader than redundancy. Redundant systems fail over when a component fails. Resilient systems can degrade gracefully, route around problems, absorb shocks, and recover quickly. Resilience design anticipates that failures will occur and builds systems to continue functioning even when components fail."},
+{q:"A critical supplier going out of business represents which type of risk to an organization's business continuity?",o:["Financial risk only", "Supply chain / third-party dependency risk affecting ability to operate", "Reputational risk", "Operational risk only"],a:1,d:2,e:"Supply chain dependency is a key BCP consideration. If a critical supplier fails, the organization may not be able to operate. BCP should: identify critical suppliers, assess their financial health, qualify backup suppliers, maintain safety stock of critical materials, and consider in-sourcing critical functions. Single-source dependencies amplify this risk."},
+{q:"After a disaster, a company must recover its operations in this order: life safety, then legal/regulatory requirements, then:",o:["C", "u", "s", "t", "o", "m", "e", "r", " ", "s", "a", "t", "i", "s", "f", "a", "c", "t", "i", "o", "n", ",", "M", "o", "s", "t", " ", "p", "r", "o", "f", "i", "t", "a", "b", "l", "e", " ", "o", "p", "e", "r", "a", "t", "i", "o", "n", "s", ",", "C", "r", "i", "t", "i", "c", "a", "l", " ", "b", "u", "s", "i", "n", "e", "s", "s", " ", "f", "u", "n", "c", "t", "i", "o", "n", "s", " ", "i", "d", "e", "n", "t", "i", "f", "i", "e", "d", " ", "i", "n", " ", "t", "h", "e", " ", "B", "I", "A", " ", "a", "s", " ", "h", "i", "g", "h", "e", "s", "t", " ", "p", "r", "i", "o", "r", "i", "t", "y", ",", "I", "T", " ", "s", "y", "s", "t", "e", "m", "s"],a:2,d:2,e:"Recovery priority: (1) Life safety — always first. (2) Legal/regulatory — obligations that cannot be paused. (3) Critical business functions from BIA — those whose loss causes greatest business impact. (4) Important functions. (5) Everything else. This prioritization drives which systems get recovered first with limited resources."},
+{q:"Exercising incident response plans quarterly rather than annually primarily improves:",o:["Compliance posture", "Team proficiency through repetition — quarterly practice builds muscle memory and exposes plan gaps before real incidents", "Documentation quality", "Budget utilization"],a:1,d:2,e:"Frequency of practice directly impacts competency. Annual tabletops create a once-a-year compliance exercise. Quarterly exercises build genuine team capability — members know their roles, contact lists stay current, and plan gaps are caught more quickly. More practice = better response when it counts."},
+{q:"A flood destroys the primary data center. Backup data is at an offsite facility 500 miles away. The PRIMARY concern is:",o:["Cost of transportation", "Whether the backup facility can support production workloads within the required RTO", "Distance from headquarters", "Media compatibility"],a:1,d:2,e:"The backup facility's actual capability to support production is what matters. Even if backup data is intact and accessible, if the facility lacks sufficient compute, storage, and connectivity to run production workloads within RTO, the DR plan fails. Capability testing must validate end-to-end recovery, not just data availability."},
+{q:"A system's availability percentage of 99.99% means it can be unavailable for MAXIMUM:",o:["52 minutes per year", "8.76 hours per year", "52 hours per year", "5.2 minutes per year"],a:0,d:2,e:"99.99% (four nines) allows 0.01% downtime. 0.0001 × 525,600 minutes/year = 52.56 minutes per year. This translates to about 4.38 minutes per month. Achieving four nines requires significant redundancy, automated failover, and minimal maintenance windows. Five nines (99.999%) allows only 5.26 minutes per year."},
+{q:"Which backup media type provides the LONGEST archival life for cold data storage?",o:["Hard disk drives", "USB flash drives", "Magnetic tape", "Optical media (M-DISC)"],a:3,d:2,e:"M-DISC optical media is rated for 1,000-year archival life. Standard optical discs last 25-100 years. Magnetic tape typically lasts 30-50 years with proper storage. Hard drives are not recommended for long-term archival (moving parts degrade). For regulatory retention requiring decades, optical or tape with periodic migration is standard."},
+{q:"During eradication, reimaging systems from known-good images is preferred over manual malware removal because:",o:["It is faster", "It ensures complete removal of all malware components including rootkits that manual removal might miss", "It is cheaper", "It satisfies regulatory requirements"],a:1,d:2,e:"Reimaging restores systems to a known-clean state. Manual malware removal may miss: rootkits hiding themselves, persistence mechanisms in unusual locations, modified system files, or additional malware dropped after initial infection. A clean image guarantees a clean system. Manual removal creates doubt about completeness."},
+{q:"A disaster recovery plan should include:",o:["O", "n", "l", "y", " ", "t", "e", "c", "h", "n", "i", "c", "a", "l", " ", "r", "e", "c", "o", "v", "e", "r", "y", " ", "p", "r", "o", "c", "e", "d", "u", "r", "e", "s", ",", "C", "o", "n", "t", "a", "c", "t", " ", "l", "i", "s", "t", "s", ",", " ", "d", "e", "c", "i", "s", "i", "o", "n", " ", "t", "r", "e", "e", "s", ",", " ", "e", "s", "c", "a", "l", "a", "t", "i", "o", "n", " ", "p", "r", "o", "c", "e", "d", "u", "r", "e", "s", ",", " ", "v", "e", "n", "d", "o", "r", " ", "c", "o", "n", "t", "a", "c", "t", "s", ",", " ", "a", "n", "d", " ", "d", "e", "t", "a", "i", "l", "e", "d", " ", "t", "e", "c", "h", "n", "i", "c", "a", "l", " ", "r", "e", "c", "o", "v", "e", "r", "y", " ", "s", "t", "e", "p", "s", " ", "f", "o", "r", " ", "a", "l", "l", " ", "c", "o", "v", "e", "r", "e", "d", " ", "s", "y", "s", "t", "e", "m", "s"],a:1,d:2,e:"Comprehensive DR plans include: escalation procedures (who to call and when), vendor/supplier emergency contacts, decision trees (when to activate), technical recovery steps for each system, communications templates, resource lists, and testing schedules. Plans with only technical steps fail when people can't figure out who has authority or who to call."},
+{q:"A user is authenticated but then accesses a resource they're not authorized to access. Which control failed?",o:["Authentication", "Authorization", "Identification", "Accountability"],a:1,d:3,e:"Authentication confirmed who the user is (identity). Authorization controls what they can do — this is the failed control. The access control list or permission check either wasn't properly configured or had a flaw. Authentication and authorization are distinct: knowing who someone is doesn't determine what they're allowed to do."},
+{q:"Which authorization model grants access through explicit delegation where one user can grant their own permissions to another?",o:["MAC", "RBAC", "DAC — the owner can delegate access to others", "ABAC"],a:2,d:3,e:"DAC (Discretionary Access Control) allows resource owners to delegate their access rights to others at their discretion. A file owner can share the file and grant others read/write/execute permissions. This flexibility is DAC's strength and weakness — owners may grant inappropriate access without central oversight."},
+{q:"In role engineering, which process defines the roles needed for a new system?",o:["Access recertification", "Role mining — analyzing actual access patterns to define appropriate roles", "Segregation of duties analysis", "Identity provisioning"],a:1,d:3,e:"Role mining analyzes existing access patterns to identify natural groupings that form roles. Rather than manually designing roles from scratch, role mining examines who currently has what access (top-down: define roles from job descriptions, or bottom-up: analyze existing access patterns). This creates practical, right-sized roles."},
+{q:"The term 'orphaned account' refers to:",o:["An account that has never been used", "A user account whose owner has left the organization but the account was not disabled or deleted", "An administrative account with no owner", "A temporary account past its expiration date"],a:1,d:3,e:"Orphaned accounts belong to former employees, contractors, or vendors whose access wasn't revoked when they left. These create significant risk — the former user may still have access, or attackers may discover and use the dormant account. Regular account reviews and HR-IT integration prevent orphaned accounts."},
+{q:"Which physical access control is MOST appropriate for a data center requiring high security?",o:["Single-factor keypad entry", "No physical access controls needed since network access is controlled", "Multi-factor authentication with badge plus biometric plus PIN", "Standard badge readers used for office areas"],a:2,d:3,e:"Data centers contain critical infrastructure requiring the highest physical security. Multi-factor physical access combining: badge (something you have), biometric (something you are), and sometimes PIN (something you know) provides defense in depth. Single-factor is insufficient for data center-level security requirements."},
+{q:"User provisioning automation reduces security risk by:",o:["Eliminating all human error", "Ensuring consistent", " immediate application of access policies when HR status changes — removing human delay and inconsistency in access management", "Making access management faster only", "Reducing IT staff needs"],a:1,d:3,e:"Manual provisioning is slow and inconsistent. Automation triggers immediate access changes when HR events occur — new hire (provision), role change (modify), termination (revoke). This closes the window between status change and access change, preventing former employees from having active accounts and new employees from waiting for access."},
+{q:"'Trust but verify' has been replaced by 'Never trust, always verify' in modern security because:",o:["It's a marketing phrase only", "Network location can no longer be used to infer trust — internal network users and devices must be verified just as rigorously as external ones", "External threats have decreased", "VPNs provide sufficient verification"],a:1,d:3,e:"Zero trust emerged because perimeter-based trust was repeatedly exploited. Attackers who gain network access (VPN credentials, physical access, insider) inherit all trust granted to internal users. Zero trust treats every access request as potentially hostile regardless of source. 'Never trust, always verify' applies to both internal and external access."},
+{q:"Which concept describes applying the least privilege principle to service-to-service communications in cloud architectures?",o:["Service mesh", "Service account management with minimal permissions", "Microsegmentation", "API gateway security"],a:1,d:3,e:"In cloud architectures, services communicate with each other using service accounts or IAM roles. Least privilege means each service only has permissions for the specific resources it needs to function. An order processing service shouldn't have access to HR data. IAM policies enforce this at the API level."},
+{q:"Account password history requirements prevent:",o:["Brute force attacks", "Users from immediately reusing recently changed passwords", " which would defeat password rotation", "Phishing attacks", "Dictionary attacks"],a:1,d:3,e:"Password history blocks reuse of recent passwords. Without history requirements, users rotate: Password1 → Password2 → Password1. History of 12 passwords means users must choose 12 different passwords before reusing one. This extends the effective rotation period and prevents trivial policy circumvention through immediate reuse."},
+{q:"Which statement about security groups versus roles is MOST accurate?",o:["They are identical concepts", "Security groups organize users; roles define permissions — assigning users to groups that have roles provides scalable access management", "Roles are only for privileged users", "Security groups only apply to network access"],a:1,d:3,e:"Groups organize users (everyone in the Finance department). Roles define permission sets (Finance Analyst role: read financial reports, submit expense claims). Assigning groups to roles (Finance Analyst group has Finance Analyst role) creates a scalable matrix. Changes to the role automatically apply to all group members."},
+{q:"During access reviews, a manager certifies that an employee who transferred 6 months ago still needs access to both old and new department systems. This MOST likely indicates:",o:["Proper documentation of exceptional access", "Privilege creep — the employee accumulated access and the manager rubber-stamped without actual review", "Appropriate separation of duties", "A well-managed hybrid role"],a:1,d:3,e:"Privilege creep during access reviews occurs when managers approve access without genuinely verifying continued need. Rubber-stamping access reviews provides false assurance. Effective reviews require managers to justify WHY access is still needed for each item. Transfers should trigger automatic removal of old access, not just addition of new access."},
+{q:"Which mechanism prevents users from logging into multiple concurrent sessions simultaneously?",o:["VPN,Concurrent session limits — restricting users to one active session at a time,Password complexity,MFA"],a:1,d:3,e:"Concurrent session limits prevent a valid credential from being used by multiple people simultaneously. A single user shouldn't need 5 active sessions — if the limit is 1, a new login automatically terminates the old session or blocks new logins. This detects shared credentials and limits session hijacking impact."},
+{q:"Privileged accounts should NEVER be used for:",o:["Emergency operations", "Routine daily tasks like email and web browsing — use standard accounts for everyday work", "Automated processes", "Documented administrative tasks"],a:1,d:3,e:"Using privileged accounts for routine tasks exposes elevated credentials to routine risks: phishing emails, malicious websites, infected downloads. Admins should have two accounts: a standard account for daily work and a privileged account used only for specific admin tasks. This dramatically limits the exposure of high-value credentials."},
+{q:"Physical access to server rooms should be limited to:",o:["All IT staff", "Personnel with a documented operational need to physically access those specific systems", "Anyone with a badge", "Building security staff"],a:1,d:3,e:"Server room access follows least privilege — only personnel who need physical access for their specific job functions. This excludes: IT staff who only do remote administration, developers, business users. Physical access is a security control that limits insider threat and reduces the attack surface for physical attacks on servers."},
+{q:"An access control system that grants access based on an individual's membership in one or more specific groups is MOST aligned with:",o:["DAC", "MAC", "RBAC", "ABAC"],a:2,d:3,e:"RBAC assigns users to roles/groups, and groups have defined permissions. Access is determined by group membership. This matches most enterprise implementations (Active Directory security groups, IAM role assignments). ABAC would additionally consider non-role attributes like time, device, and location."},
+{q:"Strong authentication for remote access to sensitive systems SHOULD use:",o:["Password only — it's all that's needed for remote work", "VPN with MFA — encrypted tunnel with identity verification stronger than password alone", "Security questions only", "Monthly password rotation"],a:1,d:3,e:"Remote access to sensitive systems requires both network security (VPN encryption) and strong authentication (MFA). Password-only VPN is insufficient — credentials can be phished or stolen. MFA ensures that stolen credentials alone cannot provide access. This is a fundamental zero-trust requirement for remote access."},
+{q:"Which physical security control uses weight sensors to detect multiple people entering an area?",o:["RFID readers", "Biometric scanners", "Man traps with weight-based occupancy detection", "Turnstiles"],a:2,d:3,e:"Advanced mantraps use weight sensors to ensure only one person (within an expected weight range) occupies the vestibule at once. This automates tailgating detection — if two people are detected, the inner door won't open. This is more reliable than camera-based detection and works even when people move quickly."},
+{q:"Single Sign-On security considerations include:",o:["SSO increases security in all cases", "SSO creates a single point of failure — if SSO is compromised", " all connected applications are compromised", "SSO should never be used", "SSO only works for web applications"],a:1,d:3,e:"SSO trade-off: improved user experience and reduced password fatigue vs. single point of failure. If SSO credentials are compromised, the attacker accesses all SSO-connected applications. Strong MFA on the SSO is critical. Session management must also be robust — SSO sessions should have appropriate timeouts."},
+{q:"Which access control principle requires reviewing users' access rights after business processes change significantly?",o:["Least privilege enforcement", "Access recertification triggered by business events", "Separation of duties", "Password rotation"],a:1,d:3,e:"Access rights must remain appropriate as business processes evolve. When a department reorganizes, a system changes purpose, or business processes are redesigned, existing access rights may no longer be appropriate. Event-triggered access reviews (not just calendar-based) catch access that's appropriate today but inappropriate after organizational changes."},
+{q:"Attribute-based access control is MOST appropriate when access decisions require:",o:["Simple role-based rules", "Complex", " context-sensitive decisions considering multiple user", " resource", " and environmental attributes simultaneously", "High performance with minimal latency", "Physical access control only"],a:1,d:3,e:"ABAC excels at complex, context-sensitive policies. 'Senior managers in the Finance department can access financial reports from managed corporate devices during business hours when working from an approved location' — this requires evaluating multiple attributes simultaneously. RBAC handles simpler role-based requirements more efficiently."},
+{q:"A three-tier web application architecture separates:",o:["Desktop from mobile users", "Web server", " application server", " and database server into separate tiers with firewalls between each", "Development", " test", " and production environments", "Frontend and backend developers"],a:1,d:4,e:"Three-tier architecture: presentation tier (web server, user interface), logic tier (application server, business logic), data tier (database). Separating tiers with firewalls limits blast radius — a compromised web server cannot directly access the database. This is standard secure web application design."},
+{q:"Which network attack exploits trust relationships between a compromised system and other systems that trust it?",o:["Lateral movement — using trusted relationships (SMB, WMI, SSH keys) to access additional systems,SQL injection,Phishing,Denial of service"],a:0,d:4,e:"Lateral movement exploits that systems within a network trust each other. A compromised Windows server may have cached credentials or SSH keys for other systems. PowerShell remoting and WMI enable authenticated connections to trusted systems. Microsegmentation and credential hygiene (no reused passwords, no shared service account passwords) limit lateral movement."},
+{q:"An organization notices DNS queries to randomly generated domain names from an internal host. This MOST likely indicates:",o:["A misconfigured DNS client", "DNS-based malware C2 using Domain Generation Algorithms (DGA)", "Normal browser behavior", "A DNS server failure"],a:1,d:4,e:"DGA malware generates random domain names algorithmically — only the attacker knows which ones are active. The malware tries each one until it connects to the C2 server. This makes blocklisting C2 domains ineffective and creates a distinctive pattern of random-looking domain name queries. Network monitoring can detect this pattern."},
+{q:"Network packet filtering at Layer 3/4 is INSUFFICIENT for protecting against attacks because:",o:["It's too slow for modern networks", "It cannot inspect encrypted traffic and doesn't understand application context — application-layer attacks pass through on allowed ports", "It doesn't support IPv6", "It requires dedicated hardware"],a:1,d:4,e:"Packet filtering only examines IP addresses and port numbers. SQL injection arrives on permitted port 443 (HTTPS). XSS arrives on permitted port 80. Command injection arrives on permitted application ports. Application-layer attacks use legitimate network paths. WAFs and NGFWs with application awareness are needed to inspect traffic content."},
+{q:"Which type of firewall can identify and control applications regardless of which port they use?",o:["Packet filter firewall", "Stateful inspection firewall", "Application-aware / Next-generation firewall (NGFW)", "Circuit-level gateway"],a:2,d:4,e:"NGFWs use deep packet inspection to identify applications by their behavior and content, not just port numbers. Skype, BitTorrent, and many applications can run on any port. NGFWs can block BitTorrent traffic even if it uses port 443. Traditional firewalls that only check ports cannot identify or control such traffic."},
+{q:"SSL stripping attacks convert HTTPS connections to HTTP by:",o:["Breaking SSL certificates", "Intercepting the initial HTTP request before HTTPS redirect and maintaining an HTTP connection with the user while creating HTTPS with the server", "Stealing SSL certificates", "Flooding SSL servers"],a:1,d:4,e:"SSL stripping (HTTP downgrade) intercepts the initial unencrypted HTTP request, completes HTTPS with the server, but maintains HTTP with the user. The user sees HTTP (no padlock) but may not notice. HSTS (HTTP Strict Transport Security) mitigates this by instructing browsers to always use HTTPS for the domain."},
+{q:"Which network access control implementation prevents a guest laptop from accessing internal resources?",o:["VLAN assignment based on 802.1X authentication — authenticated users in internal VLAN", " unauthenticated in guest VLAN", "Firewall rules only", "MAC address filtering", "Strong passwords"],a:0,d:4,e:"802.1X with VLAN assignment places authenticated corporate devices in the internal VLAN with access to internal resources, while unauthenticated or guest devices land in an isolated guest VLAN with internet-only access. This prevents guest devices from reaching corporate resources regardless of network port used."},
+{q:"BGP hijacking attacks manipulate:",o:["DNS records", "Internet routing tables — causing traffic to route through attacker-controlled networks", "Web certificates", "Firewall rules"],a:1,d:4,e:"BGP hijacking announces false routing information, causing internet traffic to route through the attacker's network. This enables traffic interception at internet scale. Notable incidents include Pakistan Telecom's 2008 accidental YouTube blackout and various nation-state traffic interception operations. BGP security (RPKI) provides cryptographic route verification."},
+{q:"Which security control prevents domain controller replication if unauthorized changes are detected?",o:["AD FS", "SIEM correlation rules", "Read-only Domain Controllers (RODCs) — changes must originate at writable DCs", "Firewall rules blocking port 389"],a:2,d:4,e:"Read-only Domain Controllers replicate AD data but cannot write changes. If an RODC is compromised, attackers cannot modify AD data (add accounts, change passwords, modify group memberships) — changes must originate at writable DCs. Used in branch offices where physical security is lower."},
+{q:"Which security principle requires that management traffic (SSH, SNMP) travel on separate network segments from user data?",o:["Defense in depth", "Out-of-band management network — keeping management traffic isolated from production data traffic", "VLAN segregation", "Least privilege"],a:1,d:4,e:"Out-of-band management uses dedicated networks for managing infrastructure. If the production network is compromised, attackers cannot access network device management interfaces through the same path. Even if production is down, the management network remains operational for diagnosis and recovery."},
+{q:"A network defender notices an IP that consistently sends SYN packets without completing the three-way handshake. This indicates:",o:["Normal network behavior", "A SYN flood DoS attack — sending many incomplete connection attempts to exhaust server connection tables", "Slow network connectivity", "A misconfigured client"],a:1,d:4,e:"SYN floods send SYN packets but never respond to SYN-ACK (never completing the handshake). The server allocates resources for each half-open connection, filling the connection table. Legitimate connections then fail. SYN cookies allocate no resources until the handshake completes, defeating SYN floods."},
+{q:"Microsegmentation of a network means:",o:["Creating separate physical networks for each device,Applying granular security policies at the individual workload or VM level,Using more VLANs than traditional segmentation,Encrypting all east-west traffic"],a:1,d:4,e:"Microsegmentation creates security zones at the workload level, not the network level. Each VM or container has its own security policy. East-west traffic (between workloads) is controlled just as strictly as north-south (in/out of datacenter). This limits lateral movement — a compromised workload can't reach adjacent workloads without explicit permission."},
+{q:"A company's web application uses HTTPS but stores session tokens in plaintext cookies without the HttpOnly flag. The risk is:",o:["Session tokens can be intercepted on the network", "JavaScript (including injected malicious scripts) can access and steal session tokens via XSS", "Session tokens expire too quickly", "The HTTPS certificate is invalid"],a:1,d:4,e:"HttpOnly prevents JavaScript from reading cookies. Without it, XSS attacks can execute document.cookie to steal session tokens. The attacker then hijacks the session without needing credentials. Setting HttpOnly on session cookies is a defense-in-depth measure — XSS still occurs but session hijacking through cookie theft is prevented."},
+{q:"Port knocking is a security technique where:",o:["Users knock on physical server room doors", "A firewall only opens a port after receiving a specific sequence of connection attempts to other ports", "Specific ports are permanently opened for specific users", "Multiple authentication factors are required before port access"],a:1,d:4,e:"Port knocking keeps all ports closed until a client sends a specific sequence of connection attempts to defined ports in order. Only then does the firewall open the target port for that source IP. This hides services completely from port scanners. Widely used for SSH: knock on ports 7000, 8000, 9000 in sequence to open port 22."},
+{q:"Which network security threat involves injecting malicious code into web pages served to other users?",o:["SQL injection", "Cross-site scripting (XSS) — stored or persistent XSS injects code that runs for all visitors", "CSRF", "Directory traversal"],a:1,d:4,e:"Stored (persistent) XSS saves malicious scripts in the application's database. Every user who views the affected page has the script execute in their browser. This can steal cookies, redirect to phishing sites, or capture keystrokes. Reflected XSS sends the payload in the request and it reflects back. Both require output encoding to prevent."},
+{q:"Network vulnerability scanning without authorization could be considered:",o:["Ethical hacking,Legal penetration testing,Unauthorized access that may violate computer fraud laws,Normal network administration"],a:2,d:4,e:"Scanning networks you don't own or have permission to test may violate the Computer Fraud and Abuse Act (CFAA) in the US and similar laws globally. Authorization (in writing) is required before any security testing. Even scanning adjacent IP ranges or cloud provider networks without permission can create legal liability."},
+{q:"IPsec VPN operates at which network layer, making it transparent to applications?",o:["Application layer (Layer 7)", "Transport layer (Layer 4)", "Network layer (Layer 3) — encrypts IP packets transparently", "Data link layer (Layer 2)"],a:2,d:4,e:"IPsec encrypts at the IP layer, making it transparent to all applications. The application sees normal network connectivity — encryption and decryption happen below the application. Compare to TLS which requires application-level support. IPsec tunnel mode encrypts entire IP packets and adds a new IP header for transmission."},
+{q:"Which attack uses legitimate credentials obtained from one source to gain unauthorized access to accounts on different services?",o:["Brute force", "Credential stuffing — using breached username/password pairs against other sites exploiting password reuse", "Phishing", "Password spraying"],a:1,d:4,e:"Credential stuffing exploits password reuse. When a site is breached, those credentials are tested against hundreds of other sites. Billions of credential pairs are available on dark web markets. MFA defeats credential stuffing — even valid credentials can't authenticate without the second factor. Unique passwords per site eliminate the risk."},
+{q:"An intrusion prevention system (IPS) differs from a firewall because:",o:["IPS is more expensive", "IPS analyzes traffic content for attack signatures and can block based on behavioral analysis", " not just network rules", "Firewalls are faster", "IPS only protects wireless networks"],a:1,d:4,e:"Firewalls enforce network policy based on source/destination/port rules. IPS examines actual traffic content for attack patterns — SQL injection strings, shellcode, exploit payloads. IPS blocks malicious content even on permitted ports. Together they provide layered protection: firewalls control network flows, IPS inspects content within allowed flows."},
+{q:"Transport Layer Security (TLS) 1.3 improvements over TLS 1.2 include:",o:["Support for more cipher suites", "Mandatory perfect forward secrecy and reduced handshake latency with 0-RTT resumption", "Support for SHA-1 certificates", "Better backward compatibility"],a:1,d:4,e:"TLS 1.3 improvements: removed weak algorithms (RSA key exchange, CBC mode ciphers, SHA-1, MD5, DES), mandates perfect forward secrecy (ephemeral key exchange only), reduces handshake from 2 round trips to 1 (1-RTT), supports 0-RTT resumption for returning clients. TLS 1.2 and below should be disabled on modern systems."},
+{q:"A security team observes 50,000 failed authentication attempts from one IP against user accounts. This MOST likely indicates:",o:["Normal user behavior", "Brute force attack against specific accounts", "Password spraying — trying many accounts with few common passwords to avoid lockout", "Credential stuffing"],a:2,d:4,e:"50,000 attempts from one IP is too high for credential stuffing (many IPs) or brute force (many attempts per account). Password spraying tries one or few common passwords (Password1!, Summer2023!) against many accounts. By trying few attempts per account, it stays below lockout thresholds. Geo-blocking and adaptive authentication detect this."},
+{q:"Network segmentation prevents which attack scenario?",o:["A phishing email reaching end users", "An attacker who compromises a workstation from immediately accessing all servers across the network", "Malware from executing on the compromised host", "Attackers from entering the network"],a:1,d:4,e:"Segmentation creates barriers between network zones. An attacker on a user workstation VLAN cannot directly reach database servers on the database VLAN. They must traverse firewall rules between segments. Without segmentation, a flat network allows compromised workstations to reach any server directly — enabling rapid lateral movement."},
+{q:"Which security operations activity analyzes how an attacker could potentially compromise an organization BEFORE an attack occurs?",o:["Incident response", "Red team exercise / penetration test", "Threat hunting", "Vulnerability scanning only"],a:1,d:5,e:"Red team exercises and pen tests simulate real attacks proactively. The goal is to find attack paths and demonstrate impact before real attackers do. This differs from reactive incident response (after attack). The red team provides the attacker perspective; the blue team defends. Results prioritize remediation efforts."},
+{q:"Security information in logs is MOST useful when:",o:["Stored for the maximum possible time", "Centralized", " normalized", " and correlated across systems — raw logs from isolated systems hide attack patterns", "Reviewed manually by analysts", "Encrypted for security"],a:1,d:5,e:"Centralized log management (SIEM) aggregates and normalizes logs from diverse sources. Correlation rules connect events across systems. One failed login is noise; the same account failing on 20 systems in 30 seconds is an attack pattern. Logs in isolated silos hide these distributed attack patterns that only become visible when aggregated."},
+{q:"A data breach notification letter to affected customers must include:",o:["Full technical details of the attack", "The nature of the breach", " types of information affected", " and what the organization is doing in response", "The names of attackers", "All security vulnerabilities in the organization's systems"],a:1,d:5,e:"Breach notifications inform customers about: what happened, what data was affected (account numbers? health info? SSN?), what risks they face, and what the organization is doing (offering credit monitoring, etc.). Technical attack details are not necessary and may expose further vulnerabilities. Regulatory templates specify required content."},
+{q:"Security operations maturity level 1 organizations typically:",o:["Have no security program,Have ad-hoc incident response with no documented procedures, relying on heroic individual efforts,Have mature automated response capabilities,Have advanced threat hunting programs"],a:1,d:5,e:"Level 1 (Initial/Ad-hoc) security operations: no formal processes, response depends on specific individuals' knowledge, no documentation, incidents are handled reactively case-by-case. Higher maturity levels: documented processes (Level 2), metrics-driven (Level 3), automated (Level 4), optimized continuous improvement (Level 5)."},
+{q:"Which operational control ensures that security patches are tested before being deployed to production systems?",o:["Patch management policy requiring formal change control", "Antivirus scanning", "Network segmentation", "Firewall rules"],a:0,d:5,e:"Patch management policy with change control ensures patches are tested in staging environments first. This catches patches that break applications or system compatibility. Expedited processes for critical security patches balance security (deploy fast) with stability (test first). Without testing, patches can cause outages worse than the vulnerability they fix."},
+{q:"A security analyst discovers that an employee's account is being used to access files at 3 AM when the employee is known to be on vacation. FIRST action:",o:["Reset the password and alert the employee,Send an email to the account asking for explanation,Investigate further to determine if it's legitimate (scheduled task, admin action) or suspicious before acting,Do nothing — might be the employee working remotely"],a:2,d:5,e:"Investigate before acting. Scheduled tasks, system processes, or IT administrators using the account for maintenance could explain the activity. Acting immediately (resetting passwords, locking accounts) alerts attackers, disrupts legitimate processes, and destroys forensic evidence. Confirm the nature of the access before taking disruptive action."},
+{q:"Which artifact is MOST useful for establishing the timeline of a security incident?",o:["Firewall configuration files", "Centralized system and application logs with accurate timestamps", "Email notifications", "Asset inventory"],a:1,d:5,e:"Accurate logs with timestamps are the foundation of incident timeline reconstruction. They show: when the attacker first appeared, which systems were accessed in what order, what data was touched, what commands were executed. Without accurate timestamps (NTP is critical), events cannot be properly sequenced."},
+{q:"Performing security awareness training in the form of simulated phishing exercises is effective because:",o:["It satisfies compliance requirements", "It tests actual employee behavior rather than just knowledge — clicking a test phishing link triggers immediate teachable moment training", "It is cheaper than classroom training", "It covers all security topics"],a:1,d:5,e:"Behavior change requires practicing the behavior. Telling people about phishing is less effective than testing whether they click phishing links. Simulations create immediate, relevant feedback — employees who click get targeted training about exactly what they missed. Organizations track click rates over time to measure behavioral improvement."},
+{q:"Which security function is responsible for analyzing malware samples to understand their capabilities?",o:["SOC Tier 1", "Malware analysis / reverse engineering (typically SOC Tier 3 or specialized team)", "Help desk", "Network operations center"],a:1,d:5,e:"Malware analysis is specialized work requiring reverse engineering skills. Analysts use static analysis (examining code without execution) and dynamic analysis (running in sandboxes) to understand: what the malware does, what systems it targets, how it communicates, and what indicators of compromise it creates. Results improve detection and response."},
+{q:"Operational security (OPSEC) in the context of incident response means:",o:["Keeping the incident completely secret from everyone", "Carefully controlling what information about the ongoing investigation is shared — to avoid tipping off attackers who may still have system access", "Publishing all details immediately", "Only sharing information with executives"],a:1,d:5,e:"During active incidents where attackers may still have access, information about the investigation must be carefully controlled. Attackers who learn they're being investigated may destroy evidence, accelerate damage, or change tactics. Communication about active investigations should use out-of-band channels and need-to-know sharing only."},
+{q:"Which type of security testing involves receiving a set of application binaries without source code and testing for vulnerabilities?",o:["White-box testing", "Gray-box testing", "Black-box testing", "Red team exercise"],a:2,d:5,e:"Black-box testing provides no internal knowledge — the tester has only what an external attacker would have. Testing binaries without source code is black-box application testing. It simulates real-world attack conditions and is more realistic than white-box, though less comprehensive since internal code paths aren't visible."},
+{q:"Security hardening guides (CIS Benchmarks, DISA STIGs) are MOST useful for:",o:["Marketing security capabilities", "Providing specific", " prescriptive security configuration recommendations for specific operating systems and applications", "Documenting security incidents", "Planning business continuity"],a:1,d:5,e:"CIS Benchmarks and DISA STIGs provide detailed technical security configurations for specific software versions — exact registry settings, file permissions, service configurations, and more. They represent community consensus on secure configurations. Organizations use them as starting baselines, customizing as needed for their environment."},
+{q:"Which practice ensures that security monitoring is comprehensive and doesn't leave blind spots?",o:["Having more security tools", "Mapping monitoring coverage to the attack surface — identifying what is and isn't being monitored and addressing gaps", "Focusing only on perimeter monitoring", "Monitoring all traffic with a single tool"],a:1,d:5,e:"Coverage mapping identifies monitoring gaps. Questions to answer: Are all critical assets monitored? Are authentication events captured? Is lateral movement detectable? Are data exfiltration paths monitored? Gaps become the attacker's blind spots. Regular coverage reviews ensure monitoring keeps pace with infrastructure changes."},
+{q:"A security team implements honeypots in the internal network. Their PRIMARY value is:",o:["Active defense against external attacks,Early warning of internal compromise — any connection to honeypots is suspicious and indicates potential lateral movement,Replacing production systems,Testing disaster recovery procedures"],a:1,d:5,e:"Internal honeypots detect lateral movement. No legitimate user should ever connect to a honeypot. Any connection — regardless of source — indicates: an attacker who has breached the perimeter, a misconfigured system scanning the network, or an insider threat. High signal/no-noise detection with very low false positive rates."},
+{q:"Security metrics should be reported in business terms to leadership because:",o:["Technical terms impress leadership", "Leaders need to understand risk to make informed resource decisions — 'We have 47 unpatched CVEs' means less than 'We have 3 exploitable vulnerabilities on internet-facing systems representing $2M potential liability'", "Technical staff prefer business metrics", "Regulators require business-language metrics"],a:1,d:5,e:"Security metrics in technical terms (CVE counts, scan results) don't enable business decisions. Business-relevant metrics (risk exposure, regulatory compliance status, control effectiveness trends) allow leaders to make informed decisions about security investments and risk acceptance. The CISO must translate technical findings into business impact."},
+{q:"Which framework specifically addresses incident response for cybersecurity incidents?",o:["ISO 27001", "NIST SP 800-61 Computer Security Incident Handling Guide", "PCI DSS", "SOC 2"],a:1,d:5,e:"NIST SP 800-61 provides guidance on establishing an incident response capability, detecting and analyzing incidents, containing and recovering, and post-incident activities. It defines the IR lifecycle phases used throughout the security industry. It's the reference standard for incident response program development."},
+{q:"A security analyst correlates: failed login to VPN + password reset request + successful login from new device + bulk file download. This sequence MOST likely indicates:",o:["Normal user behavior in a new office", "Account takeover — attacker used phishing to get credentials", " reset to lock out the real user", " then exfiltrated data", "IT help desk activity", "Routine user behavior"],a:1,d:5,e:"This attack chain: phishing captures credentials → attacker resets password (locking out real user) → attacker logs in from their device → immediately starts data exfiltration. Correlating these events across authentication, help desk, and DLP logs reveals the full attack. Individual events look routine; the sequence is an obvious attack pattern."},
+{q:"Data sanitization procedures are required before:",o:["Employees receive new equipment", "Equipment is repurposed", " donated", " sold", " or disposed of to prevent residual data from being accessed by unauthorized parties", "Annual audits", "Equipment leaves the office for maintenance"],a:1,d:5,e:"Sanitization ensures data cannot be recovered from media when leaving organizational control. NIST SP 800-88 defines three levels: Clear (software overwriting for media remaining in same security domain), Purge (more robust methods for media leaving domain), Destroy (physical destruction for highly sensitive data). All three prevent unauthorized recovery."},
+{q:"Which security tool monitors outbound data transfers for patterns indicating sensitive data exfiltration?",o:["Antivirus", "SIEM", "Data Loss Prevention (DLP)", "Network intrusion detection"],a:2,d:5,e:"DLP monitors data in motion (network), at rest (storage), and in use (endpoints) for sensitive data patterns. It can block emails containing 16-digit numbers (credit cards), alert on large file uploads to personal cloud storage, or prevent printing of documents containing SSNs. DLP enforces data handling policies automatically."},
+{q:"Vulnerability management requires business input because:",o:["Security teams can determine priorities alone,Different vulnerabilities have vastly different real-world risk based on which assets are affected and what business functions they support,Vulnerability management is purely technical,Business teams have more security expertise"],a:1,d:5,e:"A CVSS 9.8 vulnerability on a test server is lower priority than a CVSS 7.0 on a system processing all customer payments. Business context — what the system does, what data it holds, who can access it, what regulations apply — is essential for accurate risk-based prioritization. Security and business teams must collaborate on patch priority."}
 ];
 
 
-// ── CC HUB APP ─────────────────────────────────────────────────────────────
-const DOMAIN_NAMES={1:"Security Principles",2:"Business Continuity, DR & IR",3:"Access Controls",4:"Network Security",5:"Security Operations"};
-const DOMAIN_WEIGHTS={1:26,2:10,3:22,4:24,5:18};
-const DOMAIN_COLORS={1:"var(--cy)",2:"var(--pk)",3:"var(--gn)",4:"var(--ye)",5:"var(--pu)"};
-const DOMAIN_BG={1:"var(--cy0)",2:"var(--pk0)",3:"var(--gn0)",4:"var(--ye0)",5:"var(--pu0)"};
-const PASS_SCORE=700;
-const EXAM_Q=100;
-const EXAM_SECS=7200;
-const APP_VER="1.0";
-const shuffle=function(a){var arr=[...a],i=arr.length,j,tmp;while(i--){j=Math.floor(Math.random()*(i+1));tmp=arr[i];arr[i]=arr[j];arr[j]=tmp;}return arr;};
 
-const S={
-  tab:"home",
-  quiz:{dom:0,idx:0,qs:[],sel:null,checked:false,score:0,total:0},
-  exam:{qs:[],cur:0,ans:{},flagged:[],started:false,done:false,timer:EXAM_SECS,iv:null,score:0,scaled:0},
-  cards:{dom:0,idx:0,flipped:false,seen:0},
-  stats:JSON.parse(localStorage.getItem("cc_stats")||'{"sessions":0,"correct":0,"total":0,"streak":0,"lastDate":"","domainScores":{}}'),
-  dark:localStorage.getItem("cc_dark")==="1",
-};
-if(S.dark)document.body.setAttribute("data-theme","dark");
-
-function save(){localStorage.setItem("cc_stats",JSON.stringify(S.stats));}
-function render(html){document.getElementById("main").innerHTML=html;}
-function showToast(msg,col,dur){
-  var w=document.getElementById("toast-wrap");
-  var t=document.createElement("div");
-  t.className="toast-msg";
-  t.style.background=col||"var(--tx)";
-  t.textContent=msg;
-  w.appendChild(t);
-  setTimeout(()=>{t.style.opacity="0";t.style.transition="opacity .3s";setTimeout(()=>t.remove(),300);},dur||2000);
-}
-function toggleTheme(){
-  S.dark=!S.dark;
-  document.body.setAttribute("data-theme",S.dark?"dark":"light");
-  localStorage.setItem("cc_dark",S.dark?"1":"0");
-  document.getElementById("theme-lbl").textContent=S.dark?"Light Mode":"Dark Mode";
-}
-function setTab(tab){
-  S.tab=tab;
-  document.querySelectorAll(".nav-btn").forEach((b,i)=>{
-    const tabs=["home","cards","quiz","exam","learn"];
-    b.classList.toggle("active",b.onclick&&b.onclick.toString().includes(`'${tab}'`));
-  });
-  document.querySelectorAll(".nav-btn").forEach(b=>{
-    if(b.getAttribute("onclick")&&b.getAttribute("onclick").includes(`'${tab}'`))b.classList.add("active");
-    else b.classList.remove("active");
-  });
-  document.querySelectorAll(".bnav-btn").forEach(b=>{
-    b.classList.toggle("active",b.getAttribute("onclick")&&b.getAttribute("onclick").includes(`'${tab}'`));
-  });
-  if(tab==="home")renderHome();
-  else if(tab==="quiz")renderQuizHome();
-  else if(tab==="exam")renderExamHome();
-  else if(tab==="cards")renderCardsHome();
-  else if(tab==="learn")renderLearn();
-}
-
-// ── HOME ─────────────────────────────────────────────────────────────────────
-function renderHome(){
-  var st=S.stats;
-  var pct=st.total>0?Math.round(st.correct/st.total*100):0;
-  var domainCards=Object.entries(DOMAIN_NAMES).map(([d,name])=>{
-    var ds=st.domainScores[d];
-    var score=ds&&ds.total>0?Math.round(ds.correct/ds.total*100):null;
-    var qCount=QZ.filter(q=>q.d==d).length;
-    return `<div class="card" style="margin-bottom:10px;border-left:3px solid ${DOMAIN_COLORS[d]};cursor:pointer" onclick="setTab('quiz');startQuiz(${d})">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
-        <div style="font-weight:700;font-size:14px">${name}</div>
-        <span style="background:${DOMAIN_BG[d]};color:${DOMAIN_COLORS[d]};padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700">${DOMAIN_WEIGHTS[d]}%</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:10px">
-        <div class="prog-bar" style="flex:1"><div class="prog-fill" style="width:${score||0}%;background:${DOMAIN_COLORS[d]}"></div></div>
-        <div style="font-size:12px;color:var(--tx3)">${score!==null?score+"%":"—"}</div>
-        <div style="font-size:11px;color:var(--tx4)">${qCount}q</div>
-      </div>
-    </div>`;
-  }).join('');
-
-  render(`<div class="pg">
-    <div class="card2" style="margin-bottom:20px">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap">
-        <div>
-          <div style="font-size:11px;color:var(--cy);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">ISC2 Certified in Cybersecurity</div>
-          <div style="font-family:Syne,sans-serif;font-size:28px;font-weight:800;margin-bottom:4px">CC Study Hub</div>
-          <div style="font-size:13px;color:var(--tx3)">${QZ.length} questions · 5 domains · Exam: 100q, 120min, score 700/1000</div>
-        </div>
-        <div style="text-align:right">
-          <div style="font-family:Syne,sans-serif;font-size:36px;font-weight:800;color:var(--cy)">${pct}%</div>
-          <div style="font-size:11px;color:var(--tx3)">Overall Score</div>
-          <div style="font-size:11px;color:var(--tx4);margin-top:2px">${st.sessions} sessions · ${st.streak} day streak</div>
-        </div>
-      </div>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-card"><div class="stat-num">${QZ.length}</div><div class="stat-label">Questions</div></div>
-      <div class="stat-card"><div class="stat-num">${st.correct}</div><div class="stat-label">Correct</div></div>
-      <div class="stat-card"><div class="stat-num">${PASS_SCORE}</div><div class="stat-label">Pass Score</div></div>
-      <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Domains</div></div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-      <div>
-        <div class="stitle">Domain Performance</div>
-        ${domainCards}
-      </div>
-      <div>
-        <div class="stitle">Quick Start</div>
-        <div class="card" style="margin-bottom:10px;cursor:pointer" onclick="setTab('quiz');startQuiz(0)">
-          <div style="font-size:22px;margin-bottom:6px">❓</div>
-          <div style="font-weight:700;margin-bottom:3px">Practice Quiz</div>
-          <div style="font-size:12px;color:var(--tx3)">20 questions · pick a domain or mix all</div>
-        </div>
-        <div class="card" style="margin-bottom:10px;cursor:pointer" onclick="setTab('exam');startExam()">
-          <div style="font-size:22px;margin-bottom:6px">📝</div>
-          <div style="font-weight:700;margin-bottom:3px">Full Simulation</div>
-          <div style="font-size:12px;color:var(--tx3)">100q · 120 min · IRT scaled score</div>
-        </div>
-        <div class="card" style="margin-bottom:10px;cursor:pointer" onclick="setTab('cards');renderCards()">
-          <div style="font-size:22px;margin-bottom:6px">🃏</div>
-          <div style="font-weight:700;margin-bottom:3px">Flashcards</div>
-          <div style="font-size:12px;color:var(--tx3)">Key terms and concepts</div>
-        </div>
-        <div class="card" style="cursor:pointer" onclick="setTab('learn')">
-          <div style="font-size:22px;margin-bottom:6px">📖</div>
-          <div style="font-weight:700;margin-bottom:3px">Domain Guide</div>
-          <div style="font-size:12px;color:var(--tx3)">Study notes for all 5 domains</div>
-        </div>
-      </div>
-    </div>
-  </div>`);
-}
-
-// ── QUIZ ─────────────────────────────────────────────────────────────────────
-function renderQuizHome(){
-  var domBtns=Object.entries(DOMAIN_NAMES).map(([d,name])=>`
-    <button class="btn btn-s" style="text-align:left;width:100%;margin-bottom:8px;border-left:3px solid ${DOMAIN_COLORS[d]}" onclick="startQuiz(${d})">
-      <span style="color:${DOMAIN_COLORS[d]};margin-right:6px">D${d}</span>${name} <span style="color:var(--tx4);margin-left:auto;font-size:11px">${QZ.filter(q=>q.d==d).length}q</span>
-    </button>`).join('');
-  render(`<div class="pg">
-    <div class="stitle">Practice Quiz</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-      <div class="card">
-        <div style="font-weight:700;margin-bottom:12px">By Domain</div>
-        ${domBtns}
-      </div>
-      <div class="card">
-        <div style="font-weight:700;margin-bottom:12px">Mixed</div>
-        <button class="btn btn-p btn-full" style="margin-bottom:10px" onclick="startQuiz(0)">All Domains Mix</button>
-        <button class="btn btn-s btn-full" style="margin-bottom:10px" onclick="startWeakQuiz()">Weak Areas Focus</button>
-        <div style="margin-top:16px;font-size:13px;color:var(--tx3)">Each quiz: 20 questions, instant feedback, domain score tracking</div>
-      </div>
-    </div>
-  </div>`);
-}
-
-function startQuiz(dom){
-  S.quiz.dom=dom;
-  var pool=dom===0?[...QZ]:QZ.filter(q=>q.d==dom);
-  S.quiz.qs=shuffle(pool).slice(0,20);
-  S.quiz.idx=0;S.quiz.sel=null;S.quiz.checked=false;S.quiz.score=0;S.quiz.total=0;
-  renderQuizQ();
-}
-
-function startWeakQuiz(){
-  var st=S.stats;
-  // Find weakest domain
-  var worst=0,worstScore=101;
-  for(var d=1;d<=5;d++){
-    var ds=st.domainScores[d];
-    var sc=ds&&ds.total>0?ds.correct/ds.total*100:50;
-    if(sc<worstScore){worstScore=sc;worst=d;}
-  }
-  startQuiz(worst);
-}
-
-var _quizOptMap=[];
-function renderQuizQ(){
-  var q=S.quiz.qs[S.quiz.idx];
-  if(!q){renderQuizResults();return;}
-  var pct=Math.round((S.quiz.idx/S.quiz.qs.length)*100);
-  // Shuffle options
-  if(S.quiz.sel===null)_quizOptMap=shuffle([0,1,2,3]);
-  var opts=_quizOptMap.map((origIdx,dispIdx)=>{
-    var opt=q.o[origIdx];
-    var isCorrect=origIdx===q.a;
-    var isSelected=_quizOptMap[S.quiz.sel]===origIdx; // is this option currently selected
-    // Recalculate: which display index was selected?
-    var selDispIdx=S.quiz.sel;
-    var selOrigIdx=selDispIdx!==null?_quizOptMap[selDispIdx]:null;
-    var thisOrigIdx=origIdx;
-    var cls="ans";
-    if(S.quiz.checked){
-      if(isCorrect)cls+=" hit";
-      else if(selOrigIdx===thisOrigIdx&&!isCorrect)cls+=" miss";
-      else cls+=" dim";
-    } else if(selDispIdx===dispIdx)cls+=" sel";
-    return `<button class="${cls}" onclick="${S.quiz.checked?"":"selectQuizAns("+dispIdx+")"}">
-      <span class="ltr">${["A","B","C","D"][dispIdx]}</span>${opt}
-    </button>`;
-  }).join('');
-  var btnHtml=S.quiz.checked?
-    `<div style="background:var(--bg3);border:1px solid var(--bd);border-radius:10px;padding:14px;margin-bottom:14px;font-size:13px;color:var(--tx2);line-height:1.6"><b style="color:${S.quiz.qs[S.quiz.idx].o[S.quiz.qs[S.quiz.idx].a]}">${S.quiz.qs[S.quiz.idx].o[S.quiz.qs[S.quiz.idx].a]}</b> — ${S.quiz.qs[S.quiz.idx].e}</div>
-     <button class="btn btn-p btn-full" onclick="nextQuizQ()">${S.quiz.idx+1>=S.quiz.qs.length?"See Results":"Next →"}</button>`:
-    `<button class="btn btn-p btn-full" onclick="checkQuiz()" ${S.quiz.sel===null?"disabled":""}>Check Answer</button>`;
-  render(`<div class="pg">
-    <div class="row" style="margin-bottom:14px">
-      <button class="btn btn-s" onclick="renderQuizHome()">← Back</button>
-      <div style="flex:1">
-        <div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div>
-        <div style="font-size:11px;color:var(--tx4);margin-top:4px">${S.quiz.idx+1} of ${S.quiz.qs.length} · ${DOMAIN_NAMES[q.d]}</div>
-      </div>
-      <span style="font-size:13px;font-weight:700;color:var(--gn)">${S.quiz.score}/${S.quiz.idx}</span>
-    </div>
-    <div class="card" style="margin-bottom:14px">
-      <span style="background:${DOMAIN_BG[q.d]};color:${DOMAIN_COLORS[q.d]};padding:2px 8px;border-radius:6px;font-size:10px;font-weight:700;margin-bottom:10px;display:inline-block">D${q.d} · ${DOMAIN_NAMES[q.d]}</span>
-      <div style="font-size:15px;font-weight:600;line-height:1.6;color:var(--tx)">${q.q}</div>
-    </div>
-    ${opts}${btnHtml}
-  </div>`);
-}
-window.selectQuizAns=function(i){S.quiz.sel=i;renderQuizQ();}
-window.checkQuiz=function(){
-  if(S.quiz.sel===null)return;
-  S.quiz.checked=true;
-  var q=S.quiz.qs[S.quiz.idx];
-  var selOrig=_quizOptMap[S.quiz.sel];
-  var correct=selOrig===q.a;
-  if(correct)S.quiz.score++;
-  S.quiz.total++;
-  // Update domain stats
-  if(!S.stats.domainScores[q.d])S.stats.domainScores[q.d]={correct:0,total:0};
-  S.stats.domainScores[q.d].total++;
-  if(correct)S.stats.domainScores[q.d].correct++;
-  S.stats.correct+=correct?1:0;
-  S.stats.total++;
-  save();
-  renderQuizQ();
-}
-window.nextQuizQ=function(){
-  S.quiz.idx++;S.quiz.sel=null;S.quiz.checked=false;_quizOptMap=[];
-  renderQuizQ();
-}
-function renderQuizResults(){
-  var pct=Math.round(S.quiz.score/S.quiz.qs.length*100);
-  var col=pct>=70?"var(--gn)":pct>=50?"var(--ye)":"var(--rd)";
-  render(`<div class="pg" style="text-align:center">
-    <div class="card2" style="margin-bottom:20px;padding:32px 20px">
-      <div style="font-size:48px;margin-bottom:8px">🎯</div>
-      <div style="font-family:Syne,sans-serif;font-size:48px;font-weight:800;color:${col}">${pct}%</div>
-      <div style="font-size:16px;margin-bottom:6px">${S.quiz.score} / ${S.quiz.qs.length} correct</div>
-      <div style="font-size:13px;color:var(--tx3)">${pct>=70?"Great work! Keep it up.":pct>=50?"Getting there — review the missed topics.":"Review the domain notes and try again."}</div>
-    </div>
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-      <button class="btn btn-p" onclick="startQuiz(${S.quiz.dom})">Try Again</button>
-      <button class="btn btn-s" onclick="renderQuizHome()">New Quiz</button>
-      <button class="btn btn-s" onclick="setTab('home')">Home</button>
-    </div>
-  </div>`);
-}
-
-// ── EXAM ─────────────────────────────────────────────────────────────────────
-function renderExamHome(){
-  render(`<div class="pg">
-    <div class="stitle">Exam Simulator</div>
-    <div class="card2" style="margin-bottom:20px">
-      <div style="font-family:Syne,sans-serif;font-size:20px;font-weight:800;margin-bottom:8px">🎯 ISC2 CC Exam</div>
-      <div style="font-size:13px;color:var(--tx2);line-height:1.8">
-        100 questions · 120 minutes · Passing score: 700/1000<br>
-        Domain weights match official ISC2 objectives<br>
-        IRT-calibrated scaled score with real exam simulation
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <button class="btn btn-p" style="padding:20px;font-size:15px;justify-content:center;flex-direction:column;gap:6px" onclick="renderCCTutorial(100)">
-        <span style="font-size:28px">📝</span>
-        <span>Full Simulation</span>
-        <span style="font-size:11px;font-weight:400;opacity:.8">100q · 120min · Scaled score</span>
-      </button>
-      <button class="btn btn-s" style="padding:20px;font-size:15px;justify-content:center;flex-direction:column;gap:6px" onclick="renderCCTutorial(50)">
-        <span style="font-size:28px">⚡</span>
-        <span>Quick Drill</span>
-        <span style="font-size:11px;font-weight:400;opacity:.8">50q · 60min</span>
-      </button>
-      <button class="btn btn-s" style="padding:20px;font-size:15px;justify-content:center;flex-direction:column;gap:6px;border-left:3px solid var(--pu)" onclick="startExam(150)">
-        <span style="font-size:28px">🏋</span>
-        <span>Endurance Mode</span>
-        <span style="font-size:11px;font-weight:400;opacity:.8">150q · stamina training</span>
-      </button>
-    </div>
-    <div class="card" style="margin-top:16px">
-      <div style="font-weight:700;margin-bottom:12px">Domain Weights on Exam</div>
-      ${Object.entries(DOMAIN_NAMES).map(([d,name])=>`
-        <div style="margin-bottom:10px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-            <span style="font-size:13px">${name}</span>
-            <span style="font-size:12px;color:${DOMAIN_COLORS[d]};font-weight:700">${DOMAIN_WEIGHTS[d]}%</span>
-          </div>
-          <div class="prog-bar"><div class="prog-fill" style="width:${DOMAIN_WEIGHTS[d]}%;background:${DOMAIN_COLORS[d]}"></div></div>
-        </div>`).join('')}
-    </div>
-  </div>`);
-}
-
-function startExam(size){
-  size=size||EXAM_Q;
-  // Build weighted question set
-  var pool=[];
-  Object.entries(DOMAIN_WEIGHTS).forEach(([d,w])=>{
-    var dqs=shuffle(QZ.filter(q=>q.d==d));
-    var count=Math.round(size*w/100);
-    pool=pool.concat(dqs.slice(0,Math.min(count,dqs.length)));
-  });
-  // Fill to size if needed
-  if(pool.length<size){
-    var extra=shuffle(QZ).filter(q=>!pool.includes(q));
-    pool=pool.concat(extra.slice(0,size-pool.length));
-  }
-  pool=shuffle(pool).slice(0,size);
-  S.exam={qs:pool,cur:0,ans:{},flagged:[],started:true,done:false,
-    timer:size===50?3600:EXAM_SECS,maxTimer:size===50?3600:EXAM_SECS,iv:null,score:0,scaled:0,sel:null};
-  S.exam.iv=setInterval(()=>{
-    S.exam.timer--;
-    updateTimerDisplay();
-    if(S.exam.timer<=0){clearInterval(S.exam.iv);finishExam(true);}
-  },1000);
-  // Build opt maps
-  S.exam.optMaps=pool.map(()=>shuffle([0,1,2,3]));
-  renderExamQ();
-}
-
-function updateTimerDisplay(){
-  var el=document.getElementById("exam-timer");
-  if(!el)return;
-  var t=S.exam.timer;
-  var h=Math.floor(t/3600),m=Math.floor((t%3600)/60),s=t%60;
-  var str=(h>0?h+":":"")+(m<10&&h>0?"0":"")+m+":"+(s<10?"0":"")+s;
-  el.textContent=str;
-  el.style.color=t<300?"var(--rd)":t<600?"var(--ye)":"var(--tx)";
-}
-
-function renderExamQ(){
-  var e=S.exam;
-  if(!e.started){renderExamHome();return;}
-  var q=e.qs[e.cur];
-  var map=e.optMaps[e.cur];
-  var isFlagged=e.flagged.includes(e.cur);
-  var answered=e.ans[e.cur]!==undefined;
-  var opts=map.map((origIdx,dispIdx)=>{
-    var isSelected=e.sel===dispIdx;
-    return `<button class="ans${isSelected?" sel":""}" onclick="examSel(${dispIdx})">
-      <span class="ltr">${["A","B","C","D"][dispIdx]}</span>${q.o[origIdx]}
-    </button>`;
-  }).join('');
-  var mapHtml=e.qs.map((qq,i)=>{
-    var ans=e.ans[i]!==undefined;
-    var flag=e.flagged.includes(i);
-    var cur=i===e.cur;
-    return `<button onclick="examJump(${i})" style="width:28px;height:28px;border-radius:6px;border:1.5px solid ${cur?"var(--cy)":flag?"var(--ye)":ans?"var(--gn)":"var(--bd)"};background:${cur?"var(--cy0)":flag?"var(--ye0)":ans?"var(--gn0)":"var(--bg3)"};color:${cur?"var(--cy)":flag?"var(--ye)":ans?"var(--gn)":"var(--tx4)"};font-size:10px;font-weight:700;cursor:pointer">${i+1}</button>`;
-  }).join('');
-
-  render(`<div>
-    <div class="exam-bar">
-      <div class="row" style="justify-content:space-between">
-        <div class="row" style="gap:12px">
-          <span style="font-size:13px;font-weight:700">${e.cur+1} / ${e.qs.length}</span>
-          <span style="background:${DOMAIN_BG[q.d]};color:${DOMAIN_COLORS[q.d]};padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700">D${q.d}</span>
-        </div>
-        <div class="row" style="gap:10px">
-          <span id="exam-timer" style="font-family:monospace;font-weight:700;font-size:14px"></span>
-          <button class="btn btn-s" style="padding:6px 10px;font-size:12px" onclick="toggleFlag()">🚩 ${isFlagged?"Unflag":"Flag"}</button>
-          <button class="btn btn-p" style="padding:6px 14px;font-size:12px" onclick="submitExam()">Submit</button>
-        </div>
-      </div>
-    </div>
-    <div class="pg">
-      <div class="card" style="margin-bottom:14px">
-        <div style="font-size:15px;font-weight:600;line-height:1.6;color:var(--tx)">${q.q}</div>
-      </div>
-      ${opts}
-      <div class="row" style="margin-top:14px;justify-content:space-between">
-        <button class="btn btn-s" onclick="examNav(-1)" ${e.cur===0?"disabled":""}>← Prev</button>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;max-width:400px;justify-content:center">${mapHtml}</div>
-        <button class="btn btn-s" onclick="examNav(1)" ${e.cur>=e.qs.length-1?"disabled":""}>Next →</button>
-      </div>
-    </div>
-  </div>`);
-  updateTimerDisplay();
-}
-window.examSel=function(i){S.exam.sel=i;S.exam.ans[S.exam.cur]=i;renderExamQ();}
-window.examJump=function(i){
-  if(isNoGoBack()&&i<S.exam.cur){showToast('No Going Back Mode is ON','var(--rd)',2000);return;}
-  S.exam.cur=i;S.exam.sel=S.exam.ans[i]!==undefined?S.exam.ans[i]:null;renderExamQ();
-}
-window.examNav=function(dir){
-  S.exam.cur=Math.max(0,Math.min(S.exam.qs.length-1,S.exam.cur+dir));
-  S.exam.sel=S.exam.ans[S.exam.cur]!==undefined?S.exam.ans[S.exam.cur]:null;
-  renderExamQ();
-}
-window.toggleFlag=function(){
-  var i=S.exam.flagged.indexOf(S.exam.cur);
-  if(i>=0)S.exam.flagged.splice(i,1);else S.exam.flagged.push(S.exam.cur);
-  renderExamQ();
-}
-window.submitExam=function(){
-  var e=S.exam;
-  var unanswered=(e.qs||[]).filter(function(q,i){return e.ans[i]===undefined;}).length;
-  var flagged=(e.flagged||[]).length;
-  if(unanswered>0){
-    if(!confirm('You have '+unanswered+' unanswered question(s) that will score 0.\n\nOK = Submit now\nCancel = Go back and answer them')){
-      var fi=e.qs.findIndex(function(q,i){return e.ans[i]===undefined;});
-      if(fi>=0){e.cur=fi;e.sel=null;renderExamQ();}
-      return;
-    }
-  }
-  clearInterval(S.exam.iv);
-  finishExam(false);
-}
-
-function renderFlagReview(){
-  var e=S.exam;
-  var flagged=e.flagged||[];
-  var unanswered=e.qs.reduce(function(acc,q,i){return e.ans[i]===undefined?acc+1:acc;},0);
-  render("<div class='pg'>"+
-    "<div class='card2' style='margin-bottom:18px;padding:20px;text-align:center'>"+
-      "<div style='font-size:32px;margin-bottom:8px'>📋</div>"+
-      "<div style='font-family:Syne,sans-serif;font-size:18px;font-weight:800;margin-bottom:6px'>Review Before Submitting</div>"+
-      "<div style='font-size:13px;color:var(--tx3)'>"+
-        (flagged.length>0?"<span style='color:var(--ye);font-weight:700'>🚩 "+flagged.length+" flagged</span>  ":"No flagged questions  ")+
-        (unanswered>0?"<span style='color:var(--rd);font-weight:700'>⚠️ "+unanswered+" unanswered</span>":"✅ All answered")+
-      "</div>"+
-    "</div>"+
-    (flagged.length>0?"<div class='card' style='margin-bottom:14px'>"+
-      "<div class='stitle' style='color:var(--ye)'>🚩 Flagged Questions</div>"+
-      flagged.map(function(i){
-        return "<div style='display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd)'>"+
-          "<span style='background:var(--ye0);color:var(--ye);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700'>Q"+(i+1)+"</span>"+
-          "<span style='font-size:12px;color:var(--tx2);flex:1'>"+e.qs[i].q.substring(0,80)+"...</span>"+
-          "<button onclick='e.cur="+i+";e.sel=e.ans["+i+"]!==undefined?e.ans["+i+"]:null;renderExamQ()' style='padding:4px 10px;background:var(--cy0);border:1px solid var(--cy);border-radius:6px;font-size:11px;color:var(--cy);cursor:pointer'>Review</button>"+
-        "</div>";
-      }).join('')+
-    "</div>":"") +
-    "<div style='display:flex;gap:10px'>"+
-      "<button class='btn btn-p' style='flex:2' onclick='clearInterval(S.exam.iv);finishExam(false)'>Submit Exam</button>"+
-      "<button class='btn btn-s' style='flex:1' onclick='renderExamQ()'>← Back</button>"+
-    "</div>"+
-  "</div>");
-}
-function finishExam(timeUp){
-  clearInterval(S.exam.iv);
-  var e=S.exam;
-  var correct=0,byDomain={1:{c:0,t:0},2:{c:0,t:0},3:{c:0,t:0},4:{c:0,t:0},5:{c:0,t:0}};
-  e.qs.forEach((q,i)=>{
-    byDomain[q.d].t++;
-    if(e.ans[i]!==undefined){
-      var selOrig=e.optMaps[i][e.ans[i]];
-      if(selOrig===q.a){correct++;byDomain[q.d].c++;}
-    }
-  });
-  var totalQ=e.qs.length;
-  var pct=Math.round(correct/totalQ*100);
-  // IRT curve
-  var rp=pct/100;
-  var scaled=rp>=0.83?Math.round(750+(rp-0.83)/0.17*150):
-             rp>=0.70?Math.round(680+(rp-0.70)/0.13*70):
-             rp>=0.50?Math.round(550+(rp-0.50)/0.20*130):
-             Math.round(rp/0.50*550);
-  scaled=Math.max(100,Math.min(1000,scaled));
-  e.done=true;e.score=correct;e.scaled=scaled;
-  // Save stats
-  S.stats.sessions++;
-  S.stats.correct+=correct;S.stats.total+=totalQ;
-  Object.entries(byDomain).forEach(([d,v])=>{
-    if(!S.stats.domainScores[d])S.stats.domainScores[d]={correct:0,total:0};
-    S.stats.domainScores[d].correct+=v.c;
-    S.stats.domainScores[d].total+=v.t;
-  });
-  save();
-  renderExamResults(correct,totalQ,scaled,byDomain,timeUp);
-}
-function renderExamResults(correct,total,scaled,byDomain,timeUp){
-  var pass=scaled>=PASS_SCORE;
-  var pct=Math.round(correct/total*100);
-  var domRows=Object.entries(DOMAIN_NAMES).map(([d,name])=>{
-    var v=byDomain[d];
-    var sc=v.t>0?Math.round(v.c/v.t*100):0;
-    return `<div style="margin-bottom:10px">
-      <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-        <span style="font-size:13px">${name}</span>
-        <span style="font-size:12px;color:${DOMAIN_COLORS[d]};font-weight:700">${v.c}/${v.t} (${sc}%)</span>
-      </div>
-      <div class="prog-bar"><div class="prog-fill" style="width:${sc}%;background:${DOMAIN_COLORS[d]}"></div></div>
-    </div>`;
-  }).join('');
-  render(`<div class="pg" style="text-align:center">
-    <div class="card2" style="margin-bottom:20px;padding:36px 24px">
-      <div style="font-size:48px;margin-bottom:12px">${pass?"🎉":"📚"}</div>
-      <div style="font-family:Syne,sans-serif;font-size:64px;font-weight:800;color:${pass?"var(--gn)":"var(--rd)"}">${scaled}</div>
-      <div style="font-size:20px;font-weight:700;color:${pass?"var(--gn)":"var(--rd)"};margin-bottom:8px">${pass?"PASS":"NEEDS WORK"}</div>
-      <div style="font-size:15px;color:var(--tx2)">${correct}/${total} correct (${pct}%)</div>
-      ${timeUp?'<div style="font-size:12px;color:var(--rd);margin-top:6px">⏱ Time expired</div>':''}
-    </div>
-    <div class="card" style="margin-bottom:16px;text-align:left">
-      <div class="stitle">Domain Breakdown</div>
-      ${domRows}
-    </div>
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-      <button class="btn btn-p" onclick="renderExamHome();startExam()">Try Again</button>
-      <button class="btn btn-s" onclick="renderExamHome()">Back</button>
-      <button class="btn btn-s" onclick="setTab('home')">Home</button>
-    </div>
-  </div>`);
-}
-
-// ── FLASHCARDS ────────────────────────────────────────────────────────────────
 var FLASH_CARDS=[
   {front:"CIA Triad",back:"Confidentiality · Integrity · Availability — the three core security properties"},
   {front:"Confidentiality",back:"Ensuring information is accessible only to authorized parties. Controls: encryption, access control, classification"},
@@ -1331,262 +954,14 @@ var FLASH_CARDS=[
   {front:"Clean Desk Policy",back:"Requires securing sensitive materials from desks when not in immediate use"},
   {front:"Chain of Custody",back:"Documentation tracking who handled evidence, when, and how — essential for legal admissibility"},
 ];
-function renderCardsHome(){
-  var domBtns=Object.entries(DOMAIN_NAMES).map(([d,name])=>`
-    <button class="btn btn-s" style="text-align:left;width:100%;margin-bottom:8px;border-left:3px solid ${DOMAIN_COLORS[d]}" onclick="renderCards()">
-      D${d} · ${name}
-    </button>`).join('');
-  render(`<div class="pg">
-    <div class="stitle">Flashcards</div>
-    <div class="card">
-      <div style="font-weight:700;margin-bottom:12px">${FLASH_CARDS.length} cards covering all 5 domains</div>
-      <button class="btn btn-p btn-full" style="margin-bottom:10px" onclick="renderCards()">Start All Flashcards</button>
-      <button class="btn btn-s btn-full" onclick="renderCards(true)">Shuffle Mode</button>
-    </div>
-  </div>`);
-}
-var _fcIdx=0,_fcCards=[];
-function renderCards(shuffle_mode){
-  _fcCards=shuffle_mode?shuffle([...FLASH_CARDS]):[...FLASH_CARDS];
-  _fcIdx=0;
-  showCard();
-}
-function showCard(){
-  if(_fcIdx>=_fcCards.length){
-    render(`<div class="pg" style="text-align:center">
-      <div class="card2" style="padding:40px;margin-bottom:20px">
-        <div style="font-size:48px;margin-bottom:12px">🎉</div>
-        <div style="font-family:Syne,sans-serif;font-size:28px;font-weight:800">All Done!</div>
-        <div style="color:var(--tx3);margin-top:8px">${FLASH_CARDS.length} cards reviewed</div>
-      </div>
-      <div style="display:flex;gap:10px;justify-content:center">
-        <button class="btn btn-p" onclick="renderCards()">Again</button>
-        <button class="btn btn-s" onclick="renderCards(true)">Shuffle</button>
-        <button class="btn btn-s" onclick="renderCardsHome()">Back</button>
-      </div>
-    </div>`);
-    return;
-  }
-  var c=_fcCards[_fcIdx];
-  var pct=Math.round(_fcIdx/FLASH_CARDS.length*100);
-  render(`<div class="pg">
-    <div class="row" style="margin-bottom:14px">
-      <button class="btn btn-s" onclick="renderCardsHome()">← Back</button>
-      <div style="flex:1"><div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div></div>
-      <span style="font-size:12px;color:var(--tx3)">${_fcIdx+1}/${FLASH_CARDS.length}</span>
-    </div>
-    <div class="fc" id="fc" onclick="flipCard()">
-      <div class="fc-inner" style="min-height:200px">
-        <div class="fc-front" style="min-height:200px;display:flex;align-items:center;justify-content:center">
-          <div style="text-align:center">
-            <div style="font-size:11px;color:var(--tx3);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">Tap to reveal</div>
-            <div style="font-family:Syne,sans-serif;font-size:24px;font-weight:800">${c.front}</div>
-          </div>
-        </div>
-        <div class="fc-back" style="min-height:200px;display:flex;align-items:center;justify-content:center">
-          <div style="text-align:center;font-size:15px;line-height:1.7;color:var(--tx)">${c.back}</div>
-        </div>
-      </div>
-    </div>
-    <div style="display:flex;gap:10px;margin-top:14px">
-      <button class="btn btn-s" style="flex:1" onclick="prevCard()">← Prev</button>
-      <button class="btn btn-p" style="flex:2" onclick="nextCard()">Next →</button>
-    </div>
-  </div>`);
-}
-window.flipCard=function(){document.getElementById("fc")?.classList.toggle("flipped");}
-window.nextCard=function(){_fcIdx++;showCard();}
-window.prevCard=function(){if(_fcIdx>0){_fcIdx--;showCard();}}
-
-// ── LEARN ─────────────────────────────────────────────────────────────────────
-function renderLearn(){
-  render(`<div class="pg">
-    <div class="stitle">Domain Guide</div>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      ${Object.entries(DOMAIN_NAMES).map(([d,name])=>`
-        <div class="card" style="border-left:3px solid ${DOMAIN_COLORS[d]};cursor:pointer" onclick="renderDomainGuide(${d})">
-          <div style="display:flex;align-items:center;justify-content:space-between">
-            <div>
-              <div style="font-weight:700">${name}</div>
-              <div style="font-size:12px;color:var(--tx3);margin-top:3px">${DOMAIN_WEIGHTS[d]}% of exam · ${QZ.filter(q=>q.d==d).length} questions</div>
-            </div>
-            <span style="color:var(--tx4);font-size:18px">→</span>
-          </div>
-        </div>`).join('')}
-    </div>
-  </div>`);
-}
 
 var DOMAIN_GUIDE={
-  1:`<h3>Security Principles (26%)</h3>
-<p><b>CIA Triad</b> — The three pillars of security:</p>
-<ul>
-<li><b>Confidentiality</b>: Only authorized access — encrypted with AES, protected by ACLs</li>
-<li><b>Integrity</b>: Data not altered — verified by hashing (SHA-256), digital signatures</li>
-<li><b>Availability</b>: Accessible when needed — ensured by RAID, failover, backups</li>
-</ul>
-<p><b>Security Controls</b></p>
-<ul>
-<li><b>By Type</b>: Technical (firewalls, encryption) · Administrative (policies, training) · Physical (locks, guards)</li>
-<li><b>By Function</b>: Preventive · Detective · Corrective · Deterrent · Compensating</li>
-</ul>
-<p><b>Risk Management</b></p>
-<ul>
-<li>Risk = Threat × Vulnerability × Impact</li>
-<li>Responses: Mitigate · Transfer · Avoid · Accept</li>
-<li>Inherent risk (before controls) → Controls → Residual risk</li>
-</ul>
-<p><b>ISC2 Code of Ethics (4 Canons — in priority order)</b></p>
-<ol>
-<li>Protect society, the common good, public trust, and infrastructure</li>
-<li>Act honorably, honestly, justly, responsibly, and legally</li>
-<li>Provide diligent and competent service to principals</li>
-<li>Advance and protect the profession</li>
-</ol>
-<p><b>Key Principles</b>: Least privilege · Separation of duties · Defense in depth · Need-to-know · Due care vs Due diligence</p>
-<p><b>Cryptography Basics</b>: Symmetric (AES — same key) · Asymmetric (RSA — key pair) · Hashing (SHA-256 — integrity) · TLS (in-transit encryption)</p>`,
-
-  2:`<h3>Business Continuity, DR & IR (10%)</h3>
-<p><b>Key Metrics — Know These Cold</b></p>
-<ul>
-<li><b>RTO</b>: Recovery Time Objective — max acceptable downtime (how fast must systems come back)</li>
-<li><b>RPO</b>: Recovery Point Objective — max acceptable data loss (how old can the backup be)</li>
-<li><b>MTD</b>: Maximum Tolerable Downtime — absolute ceiling before unacceptable harm</li>
-<li><b>MTBF</b>: Mean Time Between Failures (reliability metric)</li>
-<li><b>MTTR</b>: Mean Time to Repair (how long to restore after failure)</li>
-</ul>
-<p><b>Backup Types</b></p>
-<ul>
-<li><b>Full</b>: All data — most storage, simplest restore</li>
-<li><b>Incremental</b>: Changes since last backup of any type — fast backup, complex restore (need full + all incrementals)</li>
-<li><b>Differential</b>: Changes since last full — grows over time, simple restore (full + latest differential)</li>
-</ul>
-<p><b>Recovery Sites</b>: Hot (operational, expensive) · Warm (configured, needs data) · Cold (empty, cheap, slow)</p>
-<p><b>IR Phases (NIST SP 800-61)</b></p>
-<ol>
-<li>Preparation</li>
-<li>Detection and Analysis</li>
-<li>Containment</li>
-<li>Eradication</li>
-<li>Recovery</li>
-<li>Post-Incident Activity (Lessons Learned)</li>
-</ol>
-<p><b>DR Tests</b>: Tabletop (discussion only) · Walkthrough · Simulation · Parallel (backup site active with primary) · Full interruption (primary shut down)</p>`,
-
-  3:`<h3>Access Controls (22%)</h3>
-<p><b>Access Control Models</b></p>
-<ul>
-<li><b>DAC</b>: Discretionary — owner controls access (Windows NTFS)</li>
-<li><b>MAC</b>: Mandatory — system enforces labels/clearances (military)</li>
-<li><b>RBAC</b>: Role-Based — access by job role (most enterprise systems)</li>
-<li><b>ABAC</b>: Attribute-Based — multiple attributes simultaneously</li>
-<li><b>Rule-Based</b>: Admin rules (time, IP) — used in firewall ACLs</li>
-</ul>
-<p><b>Authentication Factors</b></p>
-<ul>
-<li>Something You Know: password, PIN</li>
-<li>Something You Have: token, smart card, OTP</li>
-<li>Something You Are: biometrics (fingerprint, iris)</li>
-<li>Somewhere You Are: location-based</li>
-</ul>
-<p><b>MFA</b>: Two or more DIFFERENT factor types required</p>
-<p><b>Physical Access Controls</b>: Mantrap (prevents tailgating) · Bollards (vehicle barriers) · CCTV · Badge/RFID · Biometrics · Guards</p>
-<p><b>Key Principles</b></p>
-<ul>
-<li>Least privilege — minimum access needed</li>
-<li>Separation of duties — divide critical tasks</li>
-<li>Default deny — deny all unless explicitly permitted</li>
-<li>Account management — provision, review, deprovision promptly</li>
-<li>Privilege creep — accumulation of excess access over time</li>
-</ul>`,
-
-  4:`<h3>Network Security (24%)</h3>
-<p><b>Key Ports to Know</b></p>
-<ul>
-<li>22 — SSH (encrypted remote access)</li>
-<li>23 — Telnet (cleartext — NEVER use)</li>
-<li>25 — SMTP (email)</li>
-<li>53 — DNS</li>
-<li>80 — HTTP</li>
-<li>443 — HTTPS</li>
-<li>3389 — RDP</li>
-<li>110 — POP3 · 143 — IMAP</li>
-</ul>
-<p><b>Network Devices</b>: Hub (Layer 1) · Switch (Layer 2, MAC) · Router (Layer 3, IP) · Firewall (traffic filtering)</p>
-<p><b>Firewall Types</b>: Packet filter (IP/port) · Stateful (connection tracking) · NGFW (application-aware)</p>
-<p><b>Security Zones</b>: Internet → DMZ (public servers) → Firewall → Internal → Secure Zone</p>
-<p><b>Common Attacks</b></p>
-<ul>
-<li>DoS/DDoS — overwhelm with traffic (attacks availability)</li>
-<li>MitM — intercept communications between parties</li>
-<li>ARP Poisoning — corrupt ARP cache for local MitM</li>
-<li>DNS Poisoning — corrupt DNS to redirect users</li>
-<li>Phishing — social engineering via email</li>
-</ul>
-<p><b>Wireless Security</b>: WPA3 (best) · WPA2 (acceptable) · WPA (weak) · WEP (broken, never use)</p>
-<p><b>Email Security</b>: SPF (authorized servers) · DKIM (digital signatures) · DMARC (policy + reporting)</p>
-<p><b>Malware Types</b>: Virus · Worm · Trojan · Ransomware · Rootkit (kernel level, hardest to detect) · Spyware</p>`,
-
-  5:`<h3>Security Operations (18%)</h3>
-<p><b>Security Tools</b></p>
-<ul>
-<li><b>SIEM</b>: Centralize logs, correlate events, detect threats across organization</li>
-<li><b>DLP</b>: Prevent sensitive data from leaving without authorization</li>
-<li><b>FIM</b>: Detect unauthorized changes to critical files</li>
-<li><b>IDS/IPS</b>: Detect (IDS) or detect and block (IPS) network attacks</li>
-</ul>
-<p><b>Vulnerability Management</b>: Scanning (identify) → Prioritization → Patching → Verification</p>
-<p><b>Data Handling</b></p>
-<ul>
-<li>Retention: Keep data only as long as needed</li>
-<li>Destruction: Overwrite (HDDs) · Physical destruction · Degaussing (magnetic media only)</li>
-<li>SSDs: Degaussing doesn't work — use cryptographic erasure or physical destruction</li>
-</ul>
-<p><b>Digital Forensics</b>: Preserve evidence → Chain of custody → Write blockers → Forensic imaging → Analysis</p>
-<p><b>Security Awareness</b>: Primary defense against social engineering and human error</p>
-<p><b>Key Policies</b></p>
-<ul>
-<li>Clean desk — secure materials when not in use</li>
-<li>Acceptable use — rules for IT resource usage</li>
-<li>Change management — authorize, test, document before implementing changes</li>
-<li>Patch management — timely application of security updates</li>
-</ul>
-<p><b>Compliance</b>: GDPR (EU privacy) · HIPAA (healthcare) · PCI DSS (payment cards) · ISO 27001 (ISMS)</p>`,
+  1:"<h3>Security Principles (26%)</h3>\n<p><b>CIA Triad</b> — The three pillars of security:</p>\n<ul>\n<li><b>Confidentiality</b>: Only authorized access — encrypted with AES, protected by ACLs</li>\n<li><b>Integrity</b>: Data not altered — verified by hashing (SHA-256), digital signatures</li>\n<li><b>Availability</b>: Accessible when needed — ensured by RAID, failover, backups</li>\n</ul>\n<p><b>Security Controls</b></p>\n<ul>\n<li><b>By Type</b>: Technical (firewalls, encryption) · Administrative (policies, training) · Physical (locks, guards)</li>\n<li><b>By Function</b>: Preventive · Detective · Corrective · Deterrent · Compensating</li>\n</ul>\n<p><b>Risk Management</b></p>\n<ul>\n<li>Risk = Threat × Vulnerability × Impact</li>\n<li>Responses: Mitigate · Transfer · Avoid · Accept</li>\n<li>Inherent risk (before controls) → Controls → Residual risk</li>\n</ul>\n<p><b>ISC2 Code of Ethics (4 Canons — in priority order)</b></p>\n<ol>\n<li>Protect society, the common good, public trust, and infrastructure</li>\n<li>Act honorably, honestly, justly, responsibly, and legally</li>\n<li>Provide diligent and competent service to principals</li>\n<li>Advance and protect the profession</li>\n</ol>\n<p><b>Key Principles</b>: Least privilege · Separation of duties · Defense in depth · Need-to-know · Due care vs Due diligence</p>\n<p><b>Cryptography Basics</b>: Symmetric (AES — same key) · Asymmetric (RSA — key pair) · Hashing (SHA-256 — integrity) · TLS (in-transit encryption)</p>",
+  2:"<h3>Business Continuity, DR & IR (10%)</h3>\n<p><b>Key Metrics — Know These Cold</b></p>\n<ul>\n<li><b>RTO</b>: Recovery Time Objective — max acceptable downtime (how fast must systems come back)</li>\n<li><b>RPO</b>: Recovery Point Objective — max acceptable data loss (how old can the backup be)</li>\n<li><b>MTD</b>: Maximum Tolerable Downtime — absolute ceiling before unacceptable harm</li>\n<li><b>MTBF</b>: Mean Time Between Failures (reliability metric)</li>\n<li><b>MTTR</b>: Mean Time to Repair (how long to restore after failure)</li>\n</ul>\n<p><b>Backup Types</b></p>\n<ul>\n<li><b>Full</b>: All data — most storage, simplest restore</li>\n<li><b>Incremental</b>: Changes since last backup of any type — fast backup, complex restore (need full + all incrementals)</li>\n<li><b>Differential</b>: Changes since last full — grows over time, simple restore (full + latest differential)</li>\n</ul>\n<p><b>Recovery Sites</b>: Hot (operational, expensive) · Warm (configured, needs data) · Cold (empty, cheap, slow)</p>\n<p><b>IR Phases (NIST SP 800-61)</b></p>\n<ol>\n<li>Preparation</li>\n<li>Detection and Analysis</li>\n<li>Containment</li>\n<li>Eradication</li>\n<li>Recovery</li>\n<li>Post-Incident Activity (Lessons Learned)</li>\n</ol>\n<p><b>DR Tests</b>: Tabletop (discussion only) · Walkthrough · Simulation · Parallel (backup site active with primary) · Full interruption (primary shut down)</p>",
+  3:"<h3>Access Controls (22%)</h3>\n<p><b>Access Control Models</b></p>\n<ul>\n<li><b>DAC</b>: Discretionary — owner controls access (Windows NTFS)</li>\n<li><b>MAC</b>: Mandatory — system enforces labels/clearances (military)</li>\n<li><b>RBAC</b>: Role-Based — access by job role (most enterprise systems)</li>\n<li><b>ABAC</b>: Attribute-Based — multiple attributes simultaneously</li>\n<li><b>Rule-Based</b>: Admin rules (time, IP) — used in firewall ACLs</li>\n</ul>\n<p><b>Authentication Factors</b></p>\n<ul>\n<li>Something You Know: password, PIN</li>\n<li>Something You Have: token, smart card, OTP</li>\n<li>Something You Are: biometrics (fingerprint, iris)</li>\n<li>Somewhere You Are: location-based</li>\n</ul>\n<p><b>MFA</b>: Two or more DIFFERENT factor types required</p>\n<p><b>Physical Access Controls</b>: Mantrap (prevents tailgating) · Bollards (vehicle barriers) · CCTV · Badge/RFID · Biometrics · Guards</p>\n<p><b>Key Principles</b></p>\n<ul>\n<li>Least privilege — minimum access needed</li>\n<li>Separation of duties — divide critical tasks</li>\n<li>Default deny — deny all unless explicitly permitted</li>\n<li>Account management — provision, review, deprovision promptly</li>\n<li>Privilege creep — accumulation of excess access over time</li>\n</ul>",
+  4:"<h3>Network Security (24%)</h3>\n<p><b>Key Ports to Know</b></p>\n<ul>\n<li>22 — SSH (encrypted remote access)</li>\n<li>23 — Telnet (cleartext — NEVER use)</li>\n<li>25 — SMTP (email)</li>\n<li>53 — DNS</li>\n<li>80 — HTTP</li>\n<li>443 — HTTPS</li>\n<li>3389 — RDP</li>\n<li>110 — POP3 · 143 — IMAP</li>\n</ul>\n<p><b>Network Devices</b>: Hub (Layer 1) · Switch (Layer 2, MAC) · Router (Layer 3, IP) · Firewall (traffic filtering)</p>\n<p><b>Firewall Types</b>: Packet filter (IP/port) · Stateful (connection tracking) · NGFW (application-aware)</p>\n<p><b>Security Zones</b>: Internet → DMZ (public servers) → Firewall → Internal → Secure Zone</p>\n<p><b>Common Attacks</b></p>\n<ul>\n<li>DoS/DDoS — overwhelm with traffic (attacks availability)</li>\n<li>MitM — intercept communications between parties</li>\n<li>ARP Poisoning — corrupt ARP cache for local MitM</li>\n<li>DNS Poisoning — corrupt DNS to redirect users</li>\n<li>Phishing — social engineering via email</li>\n</ul>\n<p><b>Wireless Security</b>: WPA3 (best) · WPA2 (acceptable) · WPA (weak) · WEP (broken, never use)</p>\n<p><b>Email Security</b>: SPF (authorized servers) · DKIM (digital signatures) · DMARC (policy + reporting)</p>\n<p><b>Malware Types</b>: Virus · Worm · Trojan · Ransomware · Rootkit (kernel level, hardest to detect) · Spyware</p>",
+  5:"<h3>Security Operations (18%)</h3>\n<p><b>Security Tools</b></p>\n<ul>\n<li><b>SIEM</b>: Centralize logs, correlate events, detect threats across organization</li>\n<li><b>DLP</b>: Prevent sensitive data from leaving without authorization</li>\n<li><b>FIM</b>: Detect unauthorized changes to critical files</li>\n<li><b>IDS/IPS</b>: Detect (IDS) or detect and block (IPS) network attacks</li>\n</ul>\n<p><b>Vulnerability Management</b>: Scanning (identify) → Prioritization → Patching → Verification</p>\n<p><b>Data Handling</b></p>\n<ul>\n<li>Retention: Keep data only as long as needed</li>\n<li>Destruction: Overwrite (HDDs) · Physical destruction · Degaussing (magnetic media only)</li>\n<li>SSDs: Degaussing doesn't work — use cryptographic erasure or physical destruction</li>\n</ul>\n<p><b>Digital Forensics</b>: Preserve evidence → Chain of custody → Write blockers → Forensic imaging → Analysis</p>\n<p><b>Security Awareness</b>: Primary defense against social engineering and human error</p>\n<p><b>Key Policies</b></p>\n<ul>\n<li>Clean desk — secure materials when not in use</li>\n<li>Acceptable use — rules for IT resource usage</li>\n<li>Change management — authorize, test, document before implementing changes</li>\n<li>Patch management — timely application of security updates</li>\n</ul>\n<p><b>Compliance</b>: GDPR (EU privacy) · HIPAA (healthcare) · PCI DSS (payment cards) · ISO 27001 (ISMS)</p>"
 };
-
-window.renderDomainGuide=function(d){
-  render(`<div class="pg">
-    <button class="btn btn-s" style="margin-bottom:16px" onclick="renderLearn()">← Back to Domains</button>
-    <div class="card" style="border-left:3px solid ${DOMAIN_COLORS[d]}">
-      <div style="background:${DOMAIN_BG[d]};border-radius:8px;padding:10px 14px;margin-bottom:16px;display:inline-block">
-        <span style="color:${DOMAIN_COLORS[d]};font-weight:700;font-size:13px">Domain ${d} · ${DOMAIN_WEIGHTS[d]}% of exam</span>
-      </div>
-      <div style="font-size:14px;line-height:1.8;color:var(--tx2)">${DOMAIN_GUIDE[d]}</div>
-    </div>
-    <div style="margin-top:16px;display:flex;gap:10px">
-      <button class="btn btn-p" onclick="startQuiz(${d})">Practice D${d} →</button>
-      ${d>1?`<button class="btn btn-s" onclick="renderDomainGuide(${d-1})">← D${d-1}</button>`:''}
-      ${d<5?`<button class="btn btn-s" onclick="renderDomainGuide(${d+1})">D${d+1} →</button>`:''}
-    </div>
-  </div>`);
-}
-
-// ── INIT ─────────────────────────────────────────────────────────────────────
-// Update streak
-
-function initApp(){
-  var today=new Date().toDateString();
-  if(S.stats.lastDate!==today){
-    var yesterday=new Date(Date.now()-86400000).toDateString();
-    if(S.stats.lastDate===yesterday)S.stats.streak++;
-    else if(S.stats.lastDate!==today)S.stats.streak=1;
-    S.stats.lastDate=today;
-    try{save();}catch(e){}
-  }
-  renderHome();
-}
-initApp();
-
 
 // CC PBQ DATA
 // ── CC-SPECIFIC PBQ SCENARIOS ─────────────────────────────────────────────────
@@ -1882,6 +1257,8 @@ var CC_RISK_SCENARIOS = [
     ]
   }
 ];
+
+
 
 
 // CC PBQ ENGINE
@@ -2359,19 +1736,715 @@ function renderCCTutorial(size) {
 window.renderCCTutorial = renderCCTutorial;
 
 
-// CC Multi-select questions
-var CC_MULTI = [
-  {type:"multi",choose:2,q:"Which TWO components make up the CIA triad?",o:["Confidentiality","Accountability","Integrity","Non-repudiation"],a:[0,2],d:1,e:"The CIA triad is Confidentiality, Integrity, and Availability. Only two of these options (Confidentiality and Integrity) are CIA triad components. Accountability and non-repudiation are important security properties but not part of the CIA triad."},
-  {type:"multi",choose:2,q:"Which TWO are examples of 'Something You Know' authentication factors?",o:["Fingerprint scan","Password","Smart card token","PIN number"],a:[1,3],d:3,e:"Something You Know includes passwords and PINs — knowledge-based factors. Fingerprints are Something You Are (biometric). Smart card tokens are Something You Have. Both password and PIN are knowledge factors."},
-  {type:"multi",choose:2,q:"According to ISC2's Code of Ethics, which TWO canons take HIGHER priority than 'Provide diligent service to principals' (Canon 3)?",o:["Protect society and public trust","Act honorably and legally","Advance and protect the profession","Provide competent service"],a:[0,1],d:1,e:"The four canons are prioritized: (1) Protect society (2) Act honorably/legally (3) Serve principals (4) Advance profession. Canons 1 and 2 both outrank Canon 3. When conflicts arise between serving clients and acting legally or protecting society, the higher-priority canons prevail."},
-  {type:"multi",choose:3,q:"Which THREE are valid risk response strategies?",o:["Risk mitigation","Risk transformation","Risk transfer","Risk avoidance","Risk amplification"],a:[0,2,3],d:1,e:"The four standard risk responses are: Mitigate (reduce), Transfer (insurance/outsourcing), Avoid (eliminate), and Accept (tolerate). Risk transformation and risk amplification are not recognized risk management strategies."},
-  {type:"multi",choose:2,q:"Which TWO backup types require ONLY the last full backup and the MOST RECENT secondary backup to restore?",o:["Incremental backup","Differential backup","Mirror backup","Continuous backup"],a:[1,2],d:2,e:"Differential backups: restore requires last full + most recent differential only. Mirror backups maintain an exact copy, requiring only that copy. Incremental backups require the full backup PLUS every incremental in sequence — much more complex. Continuous backup requires only the latest version."},
-  {type:"multi",choose:2,q:"Which TWO physical security controls SPECIFICALLY prevent tailgating?",o:["Security cameras","Mantrap (access control vestibule)","Warning signs","Security guard verifying one person enters at a time"],a:[1,3],d:3,e:"Mantraps physically prevent tailgating — only one person fits between the doors. A security guard checking that only one person enters verifies individual authentication. Cameras detect and deter but don't prevent tailgating in the moment. Warning signs deter but don't physically prevent."},
-  {type:"multi",choose:2,q:"Which TWO represent the correct relationship between RTO and MTD?",o:["RTO must always be LESS than MTD","MTD must always be LESS than RTO","If RTO exceeds MTD, the recovery plan will fail","RTO and MTD are the same metric"],a:[0,2],d:2,e:"RTO (target recovery time) must be less than MTD (maximum tolerable downtime). RTO is the goal; MTD is the absolute ceiling. If RTO exceeds MTD, recovery won't complete before reaching unacceptable consequences — the plan fails. They are related but distinct metrics."},
-  {type:"multi",choose:2,q:"Which TWO accurately describe MAC (Mandatory Access Control)?",o:["Data owners control access permissions","System enforces access based on labels and clearances","Access is determined by job role","Owners cannot override system-enforced access decisions"],a:[1,3],d:3,e:"MAC is defined by two key characteristics: the system (not owners) enforces access based on security labels and clearances, and owners have no ability to override these system-enforced decisions. This is what makes MAC 'mandatory' — the system mandates access regardless of owner preference."},
-  {type:"multi",choose:2,q:"Which TWO are examples of detective security controls?",o:["Security awareness training","Security camera recording","Encryption of data","Intrusion detection system alert"],a:[1,3],d:1,e:"Detective controls identify and record events. Security cameras record activity (detective). IDS generates alerts when attacks are detected (detective). Awareness training is a preventive administrative control. Encryption is a preventive technical control. Detective controls don't stop events — they identify them."},
-  {type:"multi",choose:2,q:"Which TWO data destruction methods are appropriate for solid-state drives (SSDs)?",o:["Degaussing","Cryptographic erasure (encrypt then destroy key)","Overwriting with a single-pass of zeros","Physical destruction (shredding)"],a:[1,3],d:5,e:"SSDs store data using flash memory chips, not magnetic platters — degaussing has no effect. Overwriting is unreliable for SSDs due to wear leveling. Cryptographic erasure (encrypting the entire drive then destroying the key) and physical shredding are the recommended methods for SSD sanitization."}
-];
-// Add to QZ at runtime
-CC_MULTI.forEach(function(q){QZ.push(q);});
-</script></body></html>
+
+
+// ── CC HUB APP — NO TEMPLATE LITERALS ─────────────────────────────────────
+var DOMAIN_NAMES={1:"Security Principles",2:"Business Continuity, DR & IR",3:"Access Controls",4:"Network Security",5:"Security Operations"};
+var DOMAIN_WEIGHTS={1:26,2:10,3:22,4:24,5:18};
+var DOMAIN_COLORS={1:"var(--cy)",2:"var(--pk)",3:"var(--gn)",4:"var(--ye)",5:"var(--pu)"};
+var DOMAIN_BG={1:"var(--cy0)",2:"var(--pk0)",3:"var(--gn0)",4:"var(--ye0)",5:"var(--pu0)"};
+var PASS_SCORE=700;
+var EXAM_Q=100;
+var EXAM_SECS=7200;
+function shuffle(a){var arr=[].concat(a),i=arr.length,j,t;while(i--){j=Math.floor(Math.random()*(i+1));t=arr[i];arr[i]=arr[j];arr[j]=t;}return arr;}
+
+var S={
+  tab:"home",
+  quiz:{dom:0,idx:0,qs:[],sel:null,checked:false,score:0,total:0},
+  exam:{qs:[],cur:0,ans:{},flagged:[],started:false,done:false,timer:EXAM_SECS,iv:null,ngb:false,optMaps:[]},
+  cards:{dom:0,idx:0,flipped:false},
+  stats:JSON.parse(localStorage.getItem("cc_stats")||'{"sessions":0,"correct":0,"total":0,"streak":0,"lastDate":"","domainScores":{}}'),
+  dark:localStorage.getItem("cc_dark")==="1"
+};
+if(S.dark)document.body.setAttribute("data-theme","dark");
+
+function save(){try{localStorage.setItem("cc_stats",JSON.stringify(S.stats));}catch(e){}}
+function render(html){document.getElementById("main").innerHTML=html;}
+function showToast(msg,col,dur){
+  var w=document.getElementById("toast-wrap");
+  var t=document.createElement("div");
+  t.className="toast-msg";
+  t.style.background=col||"var(--tx)";
+  t.textContent=msg;
+  w.appendChild(t);
+  setTimeout(function(){t.style.opacity="0";t.style.transition="opacity .3s";setTimeout(function(){t.remove();},300);},dur||2000);
+}
+function toggleTheme(){
+  S.dark=!S.dark;
+  document.body.setAttribute("data-theme",S.dark?"dark":"light");
+  localStorage.setItem("cc_dark",S.dark?"1":"0");
+  document.getElementById("theme-lbl").textContent=S.dark?"Light Mode":"Dark Mode";
+}
+function setTab(tab){
+  S.tab=tab;
+  document.querySelectorAll(".nav-btn").forEach(function(b){
+    var on=b.getAttribute("onclick")||"";
+    b.classList.toggle("active",on.indexOf("'"+tab+"'")>=0||on.indexOf('"'+tab+'"')>=0);
+  });
+  document.querySelectorAll(".bnav-btn").forEach(function(b){
+    var on=b.getAttribute("onclick")||"";
+    b.classList.toggle("active",on.indexOf("'"+tab+"'")>=0||on.indexOf('"'+tab+'"')>=0);
+  });
+  if(tab==="home")renderHome();
+  else if(tab==="quiz")renderQuizHome();
+  else if(tab==="exam")renderExamHome();
+  else if(tab==="cards")renderCardsHome();
+  else if(tab==="learn")renderLearn();
+  else if(tab==="pbq")renderCCPBQMenu();
+}
+
+// ── HOME ──────────────────────────────────────────────────────────────────────
+function renderHome(){
+  var st=S.stats;
+  var pct=st.total>0?Math.round(st.correct/st.total*100):0;
+  var domCards="";
+  for(var d=1;d<=5;d++){
+    var ds=st.domainScores[d];
+    var score=ds&&ds.total>0?Math.round(ds.correct/ds.total*100):null;
+    var qCount=QZ.filter(function(q){return q.d==d;}).length;
+    domCards+="<div class='card' style='margin-bottom:10px;border-left:3px solid "+DOMAIN_COLORS[d]+";cursor:pointer' onclick=\"setTab('quiz');startQuiz("+d+")\">" +
+      "<div style='display:flex;align-items:center;justify-content:space-between;margin-bottom:6px'>" +
+        "<div style='font-weight:700;font-size:14px'>"+DOMAIN_NAMES[d]+"</div>" +
+        "<span style='background:"+DOMAIN_BG[d]+";color:"+DOMAIN_COLORS[d]+";padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700'>"+DOMAIN_WEIGHTS[d]+"%</span>" +
+      "</div>" +
+      "<div style='display:flex;align-items:center;gap:10px'>" +
+        "<div class='prog-bar' style='flex:1'><div class='prog-fill' style='width:"+(score||0)+"%;background:"+DOMAIN_COLORS[d]+"'></div></div>" +
+        "<div style='font-size:12px;color:var(--tx3)'>"+(score!==null?score+"%":"—")+"</div>" +
+        "<div style='font-size:11px;color:var(--tx4)'>"+qCount+"q</div>" +
+      "</div>" +
+    "</div>";
+  }
+  render(
+    "<div class='pg'>" +
+    "<div class='card2' style='margin-bottom:20px'>" +
+      "<div style='display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap'>" +
+        "<div>" +
+          "<div style='font-size:11px;color:var(--cy);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px'>ISC2 Certified in Cybersecurity</div>" +
+          "<div style='font-family:Syne,sans-serif;font-size:28px;font-weight:800;margin-bottom:4px'>CC Study Hub</div>" +
+          "<div style='font-size:13px;color:var(--tx3)'>"+QZ.length+" questions · 5 domains · Exam: 100q, 120min, 700/1000 to pass</div>" +
+        "</div>" +
+        "<div style='text-align:right'>" +
+          "<div style='font-family:Syne,sans-serif;font-size:36px;font-weight:800;color:var(--cy)'>"+pct+"%</div>" +
+          "<div style='font-size:11px;color:var(--tx3)'>Overall Score</div>" +
+          "<div style='font-size:11px;color:var(--tx4);margin-top:2px'>"+st.sessions+" sessions · "+st.streak+" day streak</div>" +
+        "</div>" +
+      "</div>" +
+    "</div>" +
+    "<div class='stats-grid'>" +
+      "<div class='stat-card'><div class='stat-num'>"+QZ.length+"</div><div class='stat-label'>Questions</div></div>" +
+      "<div class='stat-card'><div class='stat-num'>"+st.correct+"</div><div class='stat-label'>Correct</div></div>" +
+      "<div class='stat-card'><div class='stat-num'>"+PASS_SCORE+"</div><div class='stat-label'>Pass Score</div></div>" +
+      "<div class='stat-card'><div class='stat-num'>5</div><div class='stat-label'>Domains</div></div>" +
+    "</div>" +
+    "<div style='display:grid;grid-template-columns:1fr 1fr;gap:16px'>" +
+      "<div><div class='stitle'>Domain Performance</div>"+domCards+"</div>" +
+      "<div><div class='stitle'>Quick Start</div>" +
+        "<div class='card' style='margin-bottom:10px;cursor:pointer' onclick=\"setTab('quiz');startQuiz(0)\">" +
+          "<div style='font-size:22px;margin-bottom:6px'>❓</div>" +
+          "<div style='font-weight:700;margin-bottom:3px'>Practice Quiz</div>" +
+          "<div style='font-size:12px;color:var(--tx3)'>20 questions · pick domain or all</div>" +
+        "</div>" +
+        "<div class='card' style='margin-bottom:10px;cursor:pointer' onclick='renderCCTutorial(100)'>" +
+          "<div style='font-size:22px;margin-bottom:6px'>📝</div>" +
+          "<div style='font-weight:700;margin-bottom:3px'>Full Simulation</div>" +
+          "<div style='font-size:12px;color:var(--tx3)'>100q · 120 min · IRT scaled score</div>" +
+        "</div>" +
+        "<div class='card' style='margin-bottom:10px;cursor:pointer' onclick=\"setTab('pbq')\">" +
+          "<div style='font-size:22px;margin-bottom:6px'>🧩</div>" +
+          "<div style='font-weight:700;margin-bottom:3px'>PBQ Practice</div>" +
+          "<div style='font-size:12px;color:var(--tx3)'>5 scenario types · ordering, matching, logs</div>" +
+        "</div>" +
+        "<div class='card' style='cursor:pointer' onclick=\"setTab('cards')\">" +
+          "<div style='font-size:22px;margin-bottom:6px'>🃏</div>" +
+          "<div style='font-weight:700;margin-bottom:3px'>Flashcards</div>" +
+          "<div style='font-size:12px;color:var(--tx3)'>89 key terms and concepts</div>" +
+        "</div>" +
+      "</div>" +
+    "</div>" +
+  "</div>");
+}
+
+// ── QUIZ ──────────────────────────────────────────────────────────────────────
+function renderQuizHome(){
+  var domBtns="";
+  for(var d=1;d<=5;d++){
+    domBtns+="<button class='btn btn-s' style='text-align:left;width:100%;margin-bottom:8px;border-left:3px solid "+DOMAIN_COLORS[d]+"' onclick='startQuiz("+d+")'>" +
+      "<span style='color:"+DOMAIN_COLORS[d]+";margin-right:6px'>D"+d+"</span>"+DOMAIN_NAMES[d]+
+      " <span style='color:var(--tx4);margin-left:auto;font-size:11px'>"+QZ.filter(function(q){return q.d==d;}).length+"q</span>" +
+    "</button>";
+  }
+  render(
+    "<div class='pg'>" +
+    "<div class='stitle'>Practice Quiz</div>" +
+    "<div style='display:grid;grid-template-columns:1fr 1fr;gap:16px'>" +
+      "<div class='card'><div style='font-weight:700;margin-bottom:12px'>By Domain</div>"+domBtns+"</div>" +
+      "<div class='card'>" +
+        "<div style='font-weight:700;margin-bottom:12px'>Mixed</div>" +
+        "<button class='btn btn-p btn-full' style='margin-bottom:10px' onclick='startQuiz(0)'>All Domains Mix</button>" +
+        "<button class='btn btn-s btn-full' style='margin-bottom:10px' onclick='startWeakQuiz()'>Weak Areas Focus</button>" +
+        "<div style='margin-top:16px;font-size:13px;color:var(--tx3)'>20 questions · instant feedback · domain tracking</div>" +
+      "</div>" +
+    "</div>" +
+  "</div>");
+}
+window.renderQuizHome=renderQuizHome;
+
+function startQuiz(dom){
+  S.quiz.dom=dom;
+  var pool;
+  if(dom===0){
+    var wpool=[];
+    for(var d=1;d<=5;d++){
+      var dqs=shuffle(QZ.filter(function(q){return q.d==d;}));
+      var cnt=Math.round(20*DOMAIN_WEIGHTS[d]/100);
+      wpool=wpool.concat(dqs.slice(0,Math.max(1,cnt)));
+    }
+    pool=shuffle(wpool);
+  } else {
+    pool=shuffle(QZ.filter(function(q){return q.d==dom;}));
+  }
+  S.quiz.qs=pool.slice(0,20);
+  S.quiz.idx=0;S.quiz.sel=null;S.quiz.checked=false;S.quiz.score=0;S.quiz.total=0;
+  _quizOptMap=[];
+  renderQuizQ();
+}
+window.startQuiz=startQuiz;
+
+function startWeakQuiz(){
+  var worst=1,worstScore=101;
+  for(var d=1;d<=5;d++){
+    var ds=S.stats.domainScores[d];
+    var sc=ds&&ds.total>0?ds.correct/ds.total*100:50;
+    if(sc<worstScore){worstScore=sc;worst=d;}
+  }
+  startQuiz(worst);
+}
+window.startWeakQuiz=startWeakQuiz;
+
+var _quizOptMap=[];
+function renderQuizQ(){
+  var q=S.quiz.qs[S.quiz.idx];
+  if(!q){renderQuizResults();return;}
+  var pct=Math.round((S.quiz.idx/S.quiz.qs.length)*100);
+  if(!_quizOptMap.length)_quizOptMap=shuffle([0,1,2,3]);
+  var opts="";
+  for(var di=0;di<_quizOptMap.length;di++){
+    var origIdx=_quizOptMap[di];
+    if(origIdx>=q.o.length)continue;
+    var opt=q.o[origIdx];
+    var isCorrect=origIdx===q.a;
+    var selDispIdx=S.quiz.sel;
+    var selOrigIdx=selDispIdx!==null?_quizOptMap[selDispIdx]:-1;
+    var cls="ans";
+    if(S.quiz.checked){
+      if(isCorrect)cls+=" hit";
+      else if(selOrigIdx===origIdx)cls+=" miss";
+      else cls+=" dim";
+    } else if(selDispIdx===di)cls+=" sel";
+    var clickFn=S.quiz.checked?"":"selectQuizAns("+di+")";
+    opts+="<button class='"+cls+"' onclick='"+clickFn+"'>" +
+      "<span class='ltr'>"+["A","B","C","D"][di]+"</span>"+opt+
+    "</button>";
+  }
+  var btnHtml;
+  if(S.quiz.checked){
+    btnHtml="<div style='background:var(--bg3);border:1px solid var(--bd);border-radius:10px;padding:14px;margin-bottom:14px;font-size:13px;color:var(--tx2);line-height:1.6'>" +
+      "<b style='color:var(--gn)'>"+q.o[q.a]+"</b> — "+q.e+
+    "</div>" +
+    "<button class='btn btn-p btn-full' onclick='nextQuizQ()'>"+(S.quiz.idx+1>=S.quiz.qs.length?"See Results":"Next →")+"</button>";
+  } else {
+    btnHtml="<button class='btn btn-p btn-full' onclick='checkQuiz()' "+(S.quiz.sel===null?"disabled":"")+" style='opacity:"+(S.quiz.sel===null?"0.5":"1")+"'>Check Answer</button>";
+  }
+  render(
+    "<div class='pg'>" +
+    "<div class='row' style='margin-bottom:14px'>" +
+      "<button class='btn btn-s' onclick='renderQuizHome()'>← Back</button>" +
+      "<div style='flex:1'>" +
+        "<div class='prog-bar'><div class='prog-fill' style='width:"+pct+"%'></div></div>" +
+        "<div style='font-size:11px;color:var(--tx4);margin-top:4px'>"+(S.quiz.idx+1)+" of "+S.quiz.qs.length+" · "+DOMAIN_NAMES[q.d]+"</div>" +
+      "</div>" +
+      "<span style='font-size:13px;font-weight:700;color:var(--gn)'>"+S.quiz.score+"/"+S.quiz.idx+"</span>" +
+    "</div>" +
+    "<div class='card' style='margin-bottom:14px'>" +
+      "<span style='background:"+DOMAIN_BG[q.d]+";color:"+DOMAIN_COLORS[q.d]+";padding:2px 8px;border-radius:6px;font-size:10px;font-weight:700;margin-bottom:10px;display:inline-block'>D"+q.d+" · "+DOMAIN_NAMES[q.d]+"</span>" +
+      "<div style='font-size:15px;font-weight:600;line-height:1.6;color:var(--tx)'>"+q.q+"</div>" +
+    "</div>" +
+    opts+btnHtml+
+  "</div>");
+}
+window.renderQuizQ=renderQuizQ;
+window.selectQuizAns=function(i){S.quiz.sel=i;renderQuizQ();};
+window.checkQuiz=function(){
+  if(S.quiz.sel===null)return;
+  S.quiz.checked=true;
+  var q=S.quiz.qs[S.quiz.idx];
+  var selOrig=_quizOptMap[S.quiz.sel];
+  var correct=selOrig===q.a;
+  if(correct)S.quiz.score++;
+  S.quiz.total++;
+  if(!S.stats.domainScores[q.d])S.stats.domainScores[q.d]={correct:0,total:0};
+  S.stats.domainScores[q.d].total++;
+  if(correct)S.stats.domainScores[q.d].correct++;
+  S.stats.correct+=correct?1:0;
+  S.stats.total++;
+  save();
+  renderQuizQ();
+};
+window.nextQuizQ=function(){
+  S.quiz.idx++;S.quiz.sel=null;S.quiz.checked=false;_quizOptMap=[];
+  renderQuizQ();
+};
+function renderQuizResults(){
+  var pct=Math.round(S.quiz.score/S.quiz.qs.length*100);
+  var col=pct>=70?"var(--gn)":pct>=50?"var(--ye)":"var(--rd)";
+  render(
+    "<div class='pg' style='text-align:center'>" +
+    "<div class='card2' style='margin-bottom:20px;padding:32px 20px'>" +
+      "<div style='font-size:48px;margin-bottom:8px'>🎯</div>" +
+      "<div style='font-family:Syne,sans-serif;font-size:48px;font-weight:800;color:"+col+"'>"+pct+"%</div>" +
+      "<div style='font-size:16px;margin-bottom:6px'>"+S.quiz.score+" / "+S.quiz.qs.length+" correct</div>" +
+      "<div style='font-size:13px;color:var(--tx3)'>"+(pct>=70?"Great work — keep it up.":pct>=50?"Getting there — review missed topics.":"Review domain notes and try again.")+"</div>" +
+    "</div>" +
+    "<div style='display:flex;gap:10px;justify-content:center;flex-wrap:wrap'>" +
+      "<button class='btn btn-p' onclick='startQuiz("+S.quiz.dom+")'>Try Again</button>" +
+      "<button class='btn btn-s' onclick='renderQuizHome()'>New Quiz</button>" +
+      "<button class='btn btn-s' onclick=\"setTab('home')\">Home</button>" +
+    "</div>" +
+  "</div>");
+}
+
+// ── EXAM ──────────────────────────────────────────────────────────────────────
+function renderCCTutorial(size){
+  render(
+    "<div class='pg' style='max-width:680px;margin:0 auto'>" +
+    "<div class='card2' style='text-align:center;padding:36px 20px;margin-bottom:18px'>" +
+      "<div style='font-size:40px;margin-bottom:12px'>📋</div>" +
+      "<div style='font-family:Syne,sans-serif;font-size:20px;font-weight:800;margin-bottom:6px'>Before You Begin</div>" +
+      "<div style='font-size:13px;color:var(--tx3)'>This mirrors the Pearson VUE ISC2 CC exam.</div>" +
+    "</div>" +
+    "<div class='card' style='margin-bottom:14px;padding:18px'>" +
+      "<div style='font-size:11px;font-weight:700;color:var(--cy);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px'>Exam Format</div>" +
+      "<div style='font-size:13px;color:var(--tx2);line-height:1.9'>" +
+        "This exam contains <b style='color:var(--tx)'>"+(size||100)+" questions</b> covering all 5 domains.<br>" +
+        "You have <b style='color:var(--tx)'>"+(size===50?"60":"120")+" minutes</b> to complete all questions.<br>" +
+        "Passing scaled score: <b style='color:var(--tx)'>700 / 1000</b>.<br>" +
+        "You may flag questions and return to them before submitting." +
+      "</div>" +
+    "</div>" +
+    "<div class='card' style='margin-bottom:14px;padding:18px'>" +
+      "<div style='font-size:11px;font-weight:700;color:var(--ye);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px'>ISC2 CC Exam Tips</div>" +
+      "<div style='font-size:13px;color:var(--tx2);line-height:1.9'>" +
+        "Think like a <b style='color:var(--tx)'>manager</b>, not a technician.<br>" +
+        "When two answers seem correct, pick the one that <b style='color:var(--tx)'>protects people first</b>.<br>" +
+        "<b style='color:var(--tx)'>Canon 1</b> always takes priority in ethics questions.<br>" +
+        "Read the last sentence of each question first — that is the actual ask." +
+      "</div>" +
+    "</div>" +
+    "<div class='card' style='margin-bottom:20px;padding:18px'>" +
+      "<div style='font-size:11px;font-weight:700;color:var(--gn);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px'>Domain Weights</div>" +
+      "<div style='font-size:13px;color:var(--tx2);line-height:1.9'>" +
+        "Security Principles 26% &bull; Network Security 24% &bull; Access Controls 22%<br>" +
+        "Security Operations 18% &bull; BC/DR/IR 10%<br>" +
+        "Aim for 70%+ in all domains." +
+      "</div>" +
+    "</div>" +
+    "<div style='display:flex;gap:10px'>" +
+      "<button onclick='startExam("+(size||100)+")' class='btn btn-p' style='flex:2;padding:15px;font-size:15px'>Start Exam &rarr;</button>" +
+      "<button onclick='renderExamHome()' class='btn btn-s' style='flex:1;padding:15px'>Cancel</button>" +
+    "</div>" +
+  "</div>");
+}
+window.renderCCTutorial=renderCCTutorial;
+
+function renderExamHome(){
+  var wRows="";
+  for(var d=1;d<=5;d++){
+    wRows+="<div style='margin-bottom:10px'>" +
+      "<div style='display:flex;justify-content:space-between;margin-bottom:4px'>" +
+        "<span style='font-size:13px'>"+DOMAIN_NAMES[d]+"</span>" +
+        "<span style='font-size:12px;color:"+DOMAIN_COLORS[d]+";font-weight:700'>"+DOMAIN_WEIGHTS[d]+"%</span>" +
+      "</div>" +
+      "<div class='prog-bar'><div class='prog-fill' style='width:"+DOMAIN_WEIGHTS[d]+"%;background:"+DOMAIN_COLORS[d]+"'></div></div>" +
+    "</div>";
+  }
+  render(
+    "<div class='pg'>" +
+    "<div class='stitle'>Exam Simulator</div>" +
+    "<div class='card2' style='margin-bottom:20px'>" +
+      "<div style='font-family:Syne,sans-serif;font-size:20px;font-weight:800;margin-bottom:8px'>🎯 ISC2 CC Exam</div>" +
+      "<div style='font-size:13px;color:var(--tx2);line-height:1.8'>100 questions · 120 minutes · Passing score: 700/1000<br>Domain weights match official ISC2 objectives</div>" +
+    "</div>" +
+    "<div style='display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px'>" +
+      "<button class='btn btn-p' style='padding:20px;font-size:15px;flex-direction:column;gap:6px;justify-content:center' onclick='renderCCTutorial(100)'>" +
+        "📝 Full Simulation<br><span style='font-size:11px;font-weight:400;opacity:.8'>100q · 120min · Scaled score</span>" +
+      "</button>" +
+      "<button class='btn btn-s' style='padding:20px;font-size:15px;flex-direction:column;gap:6px;justify-content:center' onclick='renderCCTutorial(50)'>" +
+        "⚡ Quick Drill<br><span style='font-size:11px;opacity:.8'>50q · 60min</span>" +
+      "</button>" +
+    "</div>" +
+    "<button class='btn btn-s btn-full' style='margin-bottom:16px;border-left:3px solid var(--pu)' onclick='startExam(150)'>" +
+      "🏋 Endurance Mode — 150q · Full stamina training" +
+    "</button>" +
+    "<div class='card'>" +
+      "<div style='font-weight:700;margin-bottom:12px'>Official Domain Weights</div>" +
+      wRows +
+    "</div>" +
+  "</div>");
+}
+window.renderExamHome=renderExamHome;
+
+function startExam(size){
+  size=size||EXAM_Q;
+  var pool=[];
+  for(var d=1;d<=5;d++){
+    var dqs=shuffle(QZ.filter(function(q){return q.d==d;}));
+    var count=Math.round(size*DOMAIN_WEIGHTS[d]/100);
+    pool=pool.concat(dqs.slice(0,Math.min(count,dqs.length)));
+  }
+  if(pool.length<size){
+    var extras=shuffle(QZ).filter(function(q){return pool.indexOf(q)<0;});
+    pool=pool.concat(extras.slice(0,size-pool.length));
+  }
+  pool=shuffle(pool).slice(0,size);
+  S.exam={qs:pool,cur:0,ans:{},flagged:[],started:true,done:false,
+    timer:size===50?3600:size>100?size*50:EXAM_SECS,iv:null,ngb:false,score:0,scaled:0,sel:null};
+  S.exam.optMaps=pool.map(function(){return shuffle([0,1,2,3]);});
+  S.exam.iv=setInterval(function(){
+    S.exam.timer--;
+    updateTimerDisplay();
+    if(S.exam.timer<=0){clearInterval(S.exam.iv);finishExam(true);}
+  },1000);
+  renderExamQ();
+}
+window.startExam=startExam;
+
+function updateTimerDisplay(){
+  var el=document.getElementById("exam-timer");
+  if(!el)return;
+  var t=S.exam.timer;
+  var h=Math.floor(t/3600),m=Math.floor((t%3600)/60),s=t%60;
+  var str=(h>0?h+":":"")+(m<10&&h>0?"0":"")+m+":"+(s<10?"0":"")+s;
+  el.textContent=str;
+  el.style.color=t<300?"var(--rd)":t<600?"var(--ye)":"var(--tx)";
+}
+
+function renderExamQ(){
+  var e=S.exam;
+  if(!e.started){renderExamHome();return;}
+  var q=e.qs[e.cur];
+  var map=e.optMaps[e.cur];
+  var isFlagged=e.flagged.indexOf(e.cur)>=0;
+  var opts="";
+  for(var di=0;di<4;di++){
+    var origIdx=map[di];
+    if(origIdx>=q.o.length)continue;
+    var isSel=e.sel===di;
+    opts+="<button class='ans"+(isSel?" sel":"")+"' onclick='examSel("+di+")'>" +
+      "<span class='ltr'>"+["A","B","C","D"][di]+"</span>"+q.o[origIdx]+
+    "</button>";
+  }
+  var mapHtml="";
+  for(var i=0;i<e.qs.length;i++){
+    var answered=e.ans[i]!==undefined;
+    var flagged=e.flagged.indexOf(i)>=0;
+    var cur=i===e.cur;
+    var bc=cur?"var(--cy)":flagged?"var(--ye)":answered?"var(--gn)":"var(--bd)";
+    var bg=cur?"var(--cy0)":flagged?"var(--ye0)":answered?"var(--gn0)":"var(--bg3)";
+    var fc=cur?"var(--cy)":flagged?"var(--ye)":answered?"var(--gn)":"var(--tx4)";
+    mapHtml+="<button onclick='examJump("+i+")' style='width:28px;height:28px;border-radius:6px;border:1.5px solid "+bc+";background:"+bg+";color:"+fc+";font-size:10px;font-weight:700;cursor:pointer'>"+(i+1)+"</button>";
+  }
+  render(
+    "<div>" +
+    "<div class='exam-bar'>" +
+      "<div class='row' style='justify-content:space-between'>" +
+        "<div class='row' style='gap:12px'>" +
+          "<span style='font-size:13px;font-weight:700'>"+(e.cur+1)+" / "+e.qs.length+"</span>" +
+          "<span style='background:"+DOMAIN_BG[q.d]+";color:"+DOMAIN_COLORS[q.d]+";padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700'>D"+q.d+"</span>" +
+        "</div>" +
+        "<div class='row' style='gap:8px'>" +
+          "<span id='exam-timer' style='font-family:monospace;font-weight:700;font-size:14px'></span>" +
+          "<button class='btn btn-s' style='padding:5px 9px;font-size:11px' onclick='toggleNGB()'>"+(e.ngb?"🔒 NGB":"🔓 NGB")+"</button>" +
+          "<button class='btn btn-s' style='padding:5px 9px;font-size:11px' onclick='toggleFlag()'>"+(isFlagged?"🚩":"☐")+" Flag</button>" +
+          "<button class='btn btn-p' style='padding:6px 14px;font-size:12px' onclick='submitExam()'>Submit</button>" +
+        "</div>" +
+      "</div>" +
+    "</div>" +
+    "<div class='pg'>" +
+      "<div class='card' style='margin-bottom:14px'>" +
+        "<div style='font-size:15px;font-weight:600;line-height:1.6;color:var(--tx)'>"+q.q+"</div>" +
+      "</div>" +
+      opts +
+      "<div class='row' style='margin-top:14px;justify-content:space-between'>" +
+        "<button class='btn btn-s' onclick='examNav(-1)' "+(e.cur===0?"disabled":"")+" style='opacity:"+(e.cur===0?"0.4":"1")+"'>← Prev</button>" +
+        "<div style='display:flex;flex-wrap:wrap;gap:3px;max-width:380px;justify-content:center'>"+mapHtml+"</div>" +
+        "<button class='btn btn-s' onclick='examNav(1)' "+(e.cur>=e.qs.length-1?"disabled":"")+" style='opacity:"+(e.cur>=e.qs.length-1?"0.4":"1")+"'>Next →</button>" +
+      "</div>" +
+    "</div>" +
+  "</div>");
+  updateTimerDisplay();
+}
+window.renderExamQ=renderExamQ;
+window.examSel=function(i){S.exam.sel=i;S.exam.ans[S.exam.cur]=i;renderExamQ();};
+window.examJump=function(i){
+  if(S.exam.ngb&&i<S.exam.cur){showToast("No Going Back Mode is ON","var(--rd)",2000);return;}
+  S.exam.cur=i;S.exam.sel=S.exam.ans[i]!==undefined?S.exam.ans[i]:null;renderExamQ();
+};
+window.examNav=function(dir){
+  var next=S.exam.cur+dir;
+  if(next<0||next>=S.exam.qs.length)return;
+  if(S.exam.ngb&&dir<0){showToast("No Going Back Mode is ON","var(--rd)",2000);return;}
+  S.exam.cur=next;S.exam.sel=S.exam.ans[next]!==undefined?S.exam.ans[next]:null;renderExamQ();
+};
+window.toggleFlag=function(){
+  var idx=S.exam.flagged.indexOf(S.exam.cur);
+  if(idx>=0)S.exam.flagged.splice(idx,1);else S.exam.flagged.push(S.exam.cur);
+  renderExamQ();
+};
+window.toggleNGB=function(){S.exam.ngb=!S.exam.ngb;renderExamQ();};
+window.submitExam=function(){
+  var e=S.exam;
+  var unanswered=e.qs.filter(function(q,i){return e.ans[i]===undefined;}).length;
+  if(unanswered>0){
+    if(!confirm("You have "+unanswered+" unanswered question(s).\nOK = Submit now  |  Cancel = Go back to answer them")){
+      for(var i=0;i<e.qs.length;i++){if(e.ans[i]===undefined){e.cur=i;e.sel=null;renderExamQ();return;}}
+    }
+  }
+  clearInterval(S.exam.iv);
+  finishExam(false);
+};
+function finishExam(timeUp){
+  clearInterval(S.exam.iv);
+  var e=S.exam;
+  var correct=0;
+  var byDomain={1:{c:0,t:0},2:{c:0,t:0},3:{c:0,t:0},4:{c:0,t:0},5:{c:0,t:0}};
+  for(var i=0;i<e.qs.length;i++){
+    var q=e.qs[i];
+    byDomain[q.d].t++;
+    if(e.ans[i]!==undefined){
+      var selOrig=e.optMaps[i][e.ans[i]];
+      if(selOrig===q.a){correct++;byDomain[q.d].c++;}
+    }
+  }
+  var total=e.qs.length;
+  var pct=Math.round(correct/total*100);
+  var rp=pct/100;
+  var scaled=rp>=0.83?Math.round(750+(rp-0.83)/0.17*250):
+             rp>=0.70?Math.round(680+(rp-0.70)/0.13*70):
+             rp>=0.50?Math.round(550+(rp-0.50)/0.20*130):
+             Math.round(rp/0.50*550);
+  scaled=Math.max(100,Math.min(1000,scaled));
+  e.done=true;e.score=correct;e.scaled=scaled;
+  S.stats.sessions++;
+  S.stats.correct+=correct;S.stats.total+=total;
+  for(var d=1;d<=5;d++){
+    if(!S.stats.domainScores[d])S.stats.domainScores[d]={correct:0,total:0};
+    S.stats.domainScores[d].correct+=byDomain[d].c;
+    S.stats.domainScores[d].total+=byDomain[d].t;
+  }
+  save();
+  window._lastExam={qs:e.qs,ans:e.ans,optMaps:e.optMaps};
+  renderExamResults(correct,total,scaled,byDomain,timeUp);
+}
+
+function renderExamResults(correct,total,scaled,byDomain,timeUp){
+  var pass=scaled>=PASS_SCORE;
+  var pct=Math.round(correct/total*100);
+  var domRows="";
+  for(var d=1;d<=5;d++){
+    var v=byDomain[d];
+    var sc=v.t>0?Math.round(v.c/v.t*100):0;
+    domRows+="<div style='margin-bottom:10px'>" +
+      "<div style='display:flex;justify-content:space-between;margin-bottom:4px'>" +
+        "<span style='font-size:13px'>"+DOMAIN_NAMES[d]+"</span>" +
+        "<span style='font-size:12px;color:"+DOMAIN_COLORS[d]+";font-weight:700'>"+v.c+"/"+v.t+" ("+sc+"%)</span>" +
+      "</div>" +
+      "<div class='prog-bar'><div class='prog-fill' style='width:"+sc+"%;background:"+DOMAIN_COLORS[d]+"'></div></div>" +
+    "</div>";
+  }
+  render(
+    "<div class='pg' style='text-align:center'>" +
+    "<div class='card2' style='margin-bottom:20px;padding:36px 24px'>" +
+      "<div style='font-size:48px;margin-bottom:12px'>"+(pass?"🎉":"📚")+"</div>" +
+      "<div style='font-family:Syne,sans-serif;font-size:64px;font-weight:800;color:"+(pass?"var(--gn)":"var(--rd)")+"'>"+scaled+"</div>" +
+      "<div style='font-size:20px;font-weight:700;color:"+(pass?"var(--gn)":"var(--rd)")+";margin-bottom:8px'>"+(pass?"PASS":"NEEDS WORK")+"</div>" +
+      "<div style='font-size:15px;color:var(--tx2)'>"+correct+"/"+total+" correct ("+pct+"%)</div>" +
+      (timeUp?"<div style='font-size:12px;color:var(--rd);margin-top:6px'>⏱ Time expired</div>":"") +
+    "</div>" +
+    "<div class='card' style='margin-bottom:16px;text-align:left'>" +
+      "<div class='stitle'>Domain Breakdown</div>" +
+      domRows +
+    "</div>" +
+    "<div id='missed-review' style='display:none;margin-bottom:16px;text-align:left'></div>" +
+    "<div style='display:flex;gap:10px;justify-content:center;flex-wrap:wrap'>" +
+      "<button class='btn btn-p' onclick='renderExamHome();startExam()'>Try Again</button>" +
+      "<button class='btn btn-s' id='review-btn' onclick='toggleMissedReview()'>📖 Review Missed</button>" +
+      "<button class='btn btn-s' onclick='renderExamHome()'>Back</button>" +
+      "<button class='btn btn-s' onclick=\"setTab('home')\">Home</button>" +
+    "</div>" +
+  "</div>");
+}
+
+function toggleMissedReview(){
+  var el=document.getElementById("missed-review");
+  var btn=document.getElementById("review-btn");
+  if(!el||!window._lastExam)return;
+  if(el.style.display==="none"){
+    var ex=window._lastExam;
+    var items="<div class='card' style='margin-bottom:16px'><div class='stitle' style='color:var(--rd)'>❌ Missed Questions</div>";
+    var count=0;
+    for(var i=0;i<ex.qs.length;i++){
+      var q=ex.qs[i];
+      if(ex.ans[i]===undefined)continue;
+      var selOrig=ex.optMaps[i][ex.ans[i]];
+      if(selOrig===q.a)continue;
+      count++;
+      var opts2="";
+      for(var di=0;di<4;di++){
+        var origIdx=ex.optMaps[i][di];
+        if(origIdx>=q.o.length)continue;
+        var isC=origIdx===q.a;
+        var isW=origIdx===selOrig&&!isC;
+        opts2+="<div style='padding:6px 10px;margin-bottom:4px;border-radius:8px;border:1.5px solid "+(isC?"var(--gn)":isW?"var(--rd)":"var(--bd)")+";background:"+(isC?"var(--gn0)":isW?"var(--rd0)":"transparent")+";font-size:12px'>" +
+          "<b>"+["A","B","C","D"][di]+".</b> "+q.o[origIdx]+(isC?" ✅":isW?" ❌":"")+"</div>";
+      }
+      items+="<div style='border-bottom:1px solid var(--bd);padding-bottom:12px;margin-bottom:12px'>" +
+        "<div style='font-size:13px;font-weight:600;color:var(--tx);margin-bottom:8px'><span style='background:var(--rd0);color:var(--rd);padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700;margin-right:6px'>Q"+(i+1)+" D"+q.d+"</span>"+q.q+"</div>" +
+        opts2 +
+        "<div style='margin-top:6px;padding:8px;background:var(--bg3);border-radius:8px;font-size:12px;color:var(--tx3)'>💡 "+q.e+"</div>" +
+      "</div>";
+    }
+    if(count===0)items+="<p style='color:var(--gn);text-align:center;padding:20px'>🎉 No missed questions!</p>";
+    items+="</div>";
+    el.innerHTML=items;
+    el.style.display="block";
+    if(btn)btn.textContent="Hide Review";
+    el.scrollIntoView({behavior:"smooth"});
+  } else {
+    el.style.display="none";
+    if(btn)btn.textContent="📖 Review Missed";
+  }
+}
+window.toggleMissedReview=toggleMissedReview;
+
+// ── FLASHCARDS ────────────────────────────────────────────────────────────────
+function renderCardsHome(){
+  render(
+    "<div class='pg'>" +
+    "<div class='stitle'>Flashcards</div>" +
+    "<div class='card'>" +
+      "<div style='font-weight:700;margin-bottom:12px'>"+FLASH_CARDS.length+" cards covering all 5 domains</div>" +
+      "<button class='btn btn-p btn-full' style='margin-bottom:10px' onclick='renderCards()'>Start All Flashcards</button>" +
+      "<button class='btn btn-s btn-full' onclick='renderCards(true)'>Shuffle Mode</button>" +
+    "</div>" +
+  "</div>");
+}
+window.renderCardsHome=renderCardsHome;
+
+var _fcIdx=0,_fcCards=[];
+function renderCards(shuf){
+  _fcCards=shuf?shuffle([].concat(FLASH_CARDS)):[].concat(FLASH_CARDS);
+  _fcIdx=0;showCard();
+}
+window.renderCards=renderCards;
+function showCard(){
+  if(_fcIdx>=_fcCards.length){
+    render(
+      "<div class='pg' style='text-align:center'>" +
+      "<div class='card2' style='padding:40px;margin-bottom:20px'>" +
+        "<div style='font-size:48px;margin-bottom:12px'>🎉</div>" +
+        "<div style='font-family:Syne,sans-serif;font-size:28px;font-weight:800'>All Done!</div>" +
+        "<div style='color:var(--tx3);margin-top:8px'>"+FLASH_CARDS.length+" cards reviewed</div>" +
+      "</div>" +
+      "<div style='display:flex;gap:10px;justify-content:center'>" +
+        "<button class='btn btn-p' onclick='renderCards()'>Again</button>" +
+        "<button class='btn btn-s' onclick='renderCards(true)'>Shuffle</button>" +
+        "<button class='btn btn-s' onclick='renderCardsHome()'>Back</button>" +
+      "</div>" +
+    "</div>");
+    return;
+  }
+  var c=_fcCards[_fcIdx];
+  var pct=Math.round(_fcIdx/FLASH_CARDS.length*100);
+  render(
+    "<div class='pg'>" +
+    "<div class='row' style='margin-bottom:14px'>" +
+      "<button class='btn btn-s' onclick='renderCardsHome()'>← Back</button>" +
+      "<div style='flex:1'><div class='prog-bar'><div class='prog-fill' style='width:"+pct+"%'></div></div></div>" +
+      "<span style='font-size:12px;color:var(--tx3)'>"+(_fcIdx+1)+"/"+FLASH_CARDS.length+"</span>" +
+    "</div>" +
+    "<div class='fc' id='fc' onclick='flipCard()'>" +
+      "<div class='fc-inner'>" +
+        "<div class='fc-front'>" +
+          "<div style='text-align:center'>" +
+            "<div style='font-size:11px;color:var(--tx3);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px'>Tap to reveal</div>" +
+            "<div style='font-family:Syne,sans-serif;font-size:24px;font-weight:800'>"+c.front+"</div>" +
+          "</div>" +
+        "</div>" +
+        "<div class='fc-back'>" +
+          "<div style='text-align:center;font-size:15px;line-height:1.7;color:var(--tx)'>"+c.back+"</div>" +
+        "</div>" +
+      "</div>" +
+    "</div>" +
+    "<div style='display:flex;gap:10px;margin-top:14px'>" +
+      "<button class='btn btn-s' style='flex:1' onclick='prevCard()'>← Prev</button>" +
+      "<button class='btn btn-p' style='flex:2' onclick='nextCard()'>Next →</button>" +
+    "</div>" +
+  "</div>");
+}
+window.flipCard=function(){var el=document.getElementById("fc");if(el)el.classList.toggle("flipped");};
+window.nextCard=function(){_fcIdx++;showCard();};
+window.prevCard=function(){if(_fcIdx>0){_fcIdx--;showCard();}};
+
+// ── LEARN ─────────────────────────────────────────────────────────────────────
+function renderLearn(){
+  var items="";
+  for(var d=1;d<=5;d++){
+    var qcnt=QZ.filter(function(q){return q.d==d;}).length;
+    items+="<div class='card' style='border-left:3px solid "+DOMAIN_COLORS[d]+";cursor:pointer;margin-bottom:10px' onclick='renderDomainGuide("+d+")'>" +
+      "<div style='display:flex;align-items:center;justify-content:space-between'>" +
+        "<div>" +
+          "<div style='font-weight:700'>"+DOMAIN_NAMES[d]+"</div>" +
+          "<div style='font-size:12px;color:var(--tx3);margin-top:3px'>"+DOMAIN_WEIGHTS[d]+"% of exam · "+qcnt+" questions</div>" +
+        "</div>" +
+        "<span style='color:var(--tx4);font-size:18px'>&#8594;</span>" +
+      "</div>" +
+    "</div>";
+  }
+  render("<div class='pg'><div class='stitle'>Domain Guide</div>"+items+"</div>");
+}
+window.renderLearn=renderLearn;
+
+function renderDomainGuide(d){
+  var prevBtn=d>1?"<button class='btn btn-s' onclick='renderDomainGuide("+(d-1)+")'>&#8592; D"+(d-1)+"</button>":"";
+  var nextBtn=d<5?"<button class='btn btn-s' onclick='renderDomainGuide("+(d+1)+")'>D"+(d+1)+" &#8594;</button>":"";
+  render(
+    "<div class='pg'>" +
+    "<button class='btn btn-s' onclick='renderLearn()' style='margin-bottom:16px'>&#8592; Back to Domains</button>" +
+    "<div class='card' style='border-left:3px solid "+DOMAIN_COLORS[d]+"'>" +
+      "<div style='background:"+DOMAIN_BG[d]+";border-radius:8px;padding:10px 14px;margin-bottom:16px;display:inline-block'>" +
+        "<span style='color:"+DOMAIN_COLORS[d]+";font-weight:700;font-size:13px'>Domain "+d+" · "+DOMAIN_WEIGHTS[d]+"% of exam</span>" +
+      "</div>" +
+      "<div style='font-size:14px;line-height:1.8;color:var(--tx2)'>"+DOMAIN_GUIDE[d]+"</div>" +
+    "</div>" +
+    "<div style='margin-top:16px;display:flex;gap:10px'>" +
+      "<button class='btn btn-p' onclick='startQuiz("+d+")'>Practice D"+d+" &#8594;</button>" +
+      prevBtn+nextBtn+
+    "</div>" +
+  "</div>");
+}
+window.renderDomainGuide=renderDomainGuide;
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+function initApp(){
+  var today=new Date().toDateString();
+  if(S.stats.lastDate!==today){
+    var yesterday=new Date(Date.now()-86400000).toDateString();
+    if(S.stats.lastDate===yesterday)S.stats.streak++;
+    else S.stats.streak=1;
+    S.stats.lastDate=today;
+    try{save();}catch(e){}
+  }
+  renderHome();
+}
+
+initApp();</script></body></html>
